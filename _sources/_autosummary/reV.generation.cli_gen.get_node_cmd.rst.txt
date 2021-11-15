@@ -1,0 +1,6 @@
+reV.generation.cli\_gen.get\_node\_cmd
+======================================
+
+.. currentmodule:: reV.generation.cli_gen
+
+.. autofunction:: get_node_cmd

@@ -1,0 +1,6 @@
+reV.qa\_qc.cli\_qa\_qc.launch\_slurm
+====================================
+
+.. currentmodule:: reV.qa_qc.cli_qa_qc
+
+.. autofunction:: launch_slurm

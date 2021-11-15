@@ -1,0 +1,6 @@
+reV.econ.cli\_econ.get\_node\_cmd
+=================================
+
+.. currentmodule:: reV.econ.cli_econ
+
+.. autofunction:: get_node_cmd

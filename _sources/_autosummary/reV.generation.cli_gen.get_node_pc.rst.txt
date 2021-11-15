@@ -1,0 +1,6 @@
+reV.generation.cli\_gen.get\_node\_pc
+=====================================
+
+.. currentmodule:: reV.generation.cli_gen
+
+.. autofunction:: get_node_pc

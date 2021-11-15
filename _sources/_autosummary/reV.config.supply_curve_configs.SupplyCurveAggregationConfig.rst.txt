@@ -1,0 +1,76 @@
+reV.config.supply\_curve\_configs.SupplyCurveAggregationConfig
+==============================================================
+
+.. currentmodule:: reV.config.supply_curve_configs
+
+.. autoclass:: SupplyCurveAggregationConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SupplyCurveAggregationConfig.check_files
+      ~SupplyCurveAggregationConfig.check_overwrite_keys
+      ~SupplyCurveAggregationConfig.clear
+      ~SupplyCurveAggregationConfig.copy
+      ~SupplyCurveAggregationConfig.fromkeys
+      ~SupplyCurveAggregationConfig.get
+      ~SupplyCurveAggregationConfig.get_file
+      ~SupplyCurveAggregationConfig.items
+      ~SupplyCurveAggregationConfig.keys
+      ~SupplyCurveAggregationConfig.pop
+      ~SupplyCurveAggregationConfig.popitem
+      ~SupplyCurveAggregationConfig.set_self_dict
+      ~SupplyCurveAggregationConfig.setdefault
+      ~SupplyCurveAggregationConfig.str_replace
+      ~SupplyCurveAggregationConfig.update
+      ~SupplyCurveAggregationConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SupplyCurveAggregationConfig.NAME
+      ~SupplyCurveAggregationConfig.REQUIREMENTS
+      ~SupplyCurveAggregationConfig.analysis_years
+      ~SupplyCurveAggregationConfig.area_filter_kernel
+      ~SupplyCurveAggregationConfig.cap_cost_scale
+      ~SupplyCurveAggregationConfig.cf_dset
+      ~SupplyCurveAggregationConfig.config_dir
+      ~SupplyCurveAggregationConfig.config_keys
+      ~SupplyCurveAggregationConfig.data_layers
+      ~SupplyCurveAggregationConfig.dirout
+      ~SupplyCurveAggregationConfig.econ_fpath
+      ~SupplyCurveAggregationConfig.excl_area
+      ~SupplyCurveAggregationConfig.excl_dict
+      ~SupplyCurveAggregationConfig.excl_fpath
+      ~SupplyCurveAggregationConfig.execution_control
+      ~SupplyCurveAggregationConfig.friction_dset
+      ~SupplyCurveAggregationConfig.friction_fpath
+      ~SupplyCurveAggregationConfig.gen_fpath
+      ~SupplyCurveAggregationConfig.h5_dsets
+      ~SupplyCurveAggregationConfig.lcoe_dset
+      ~SupplyCurveAggregationConfig.log_level
+      ~SupplyCurveAggregationConfig.logdir
+      ~SupplyCurveAggregationConfig.min_area
+      ~SupplyCurveAggregationConfig.name
+      ~SupplyCurveAggregationConfig.power_density
+      ~SupplyCurveAggregationConfig.pre_extract_inclusions
+      ~SupplyCurveAggregationConfig.recalc_lcoe
+      ~SupplyCurveAggregationConfig.res_class_bins
+      ~SupplyCurveAggregationConfig.res_class_dset
+      ~SupplyCurveAggregationConfig.res_fpath
+      ~SupplyCurveAggregationConfig.resolution
+      ~SupplyCurveAggregationConfig.tm_dset
+   
+   

@@ -1,0 +1,66 @@
+reV.config.sam\_analysis\_configs.GenConfig
+===========================================
+
+.. currentmodule:: reV.config.sam_analysis_configs
+
+.. autoclass:: GenConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~GenConfig.check_files
+      ~GenConfig.check_overwrite_keys
+      ~GenConfig.clear
+      ~GenConfig.copy
+      ~GenConfig.fromkeys
+      ~GenConfig.get
+      ~GenConfig.get_file
+      ~GenConfig.items
+      ~GenConfig.keys
+      ~GenConfig.parse_points_control
+      ~GenConfig.parse_res_files
+      ~GenConfig.parse_sam_config
+      ~GenConfig.pop
+      ~GenConfig.popitem
+      ~GenConfig.set_self_dict
+      ~GenConfig.setdefault
+      ~GenConfig.str_replace
+      ~GenConfig.update
+      ~GenConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~GenConfig.NAME
+      ~GenConfig.REQUIREMENTS
+      ~GenConfig.analysis_years
+      ~GenConfig.config_dir
+      ~GenConfig.config_keys
+      ~GenConfig.curtailment
+      ~GenConfig.dirout
+      ~GenConfig.execution_control
+      ~GenConfig.gid_map
+      ~GenConfig.log_level
+      ~GenConfig.logdir
+      ~GenConfig.name
+      ~GenConfig.output_request
+      ~GenConfig.project_points
+      ~GenConfig.resource_file
+      ~GenConfig.sam_files
+      ~GenConfig.site_data
+      ~GenConfig.technology
+      ~GenConfig.timeout
+   
+   

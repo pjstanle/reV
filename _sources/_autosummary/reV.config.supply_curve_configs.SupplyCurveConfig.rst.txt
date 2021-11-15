@@ -1,0 +1,67 @@
+reV.config.supply\_curve\_configs.SupplyCurveConfig
+===================================================
+
+.. currentmodule:: reV.config.supply_curve_configs
+
+.. autoclass:: SupplyCurveConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SupplyCurveConfig.check_files
+      ~SupplyCurveConfig.check_overwrite_keys
+      ~SupplyCurveConfig.clear
+      ~SupplyCurveConfig.copy
+      ~SupplyCurveConfig.fromkeys
+      ~SupplyCurveConfig.get
+      ~SupplyCurveConfig.get_file
+      ~SupplyCurveConfig.items
+      ~SupplyCurveConfig.keys
+      ~SupplyCurveConfig.pop
+      ~SupplyCurveConfig.popitem
+      ~SupplyCurveConfig.set_self_dict
+      ~SupplyCurveConfig.setdefault
+      ~SupplyCurveConfig.str_replace
+      ~SupplyCurveConfig.update
+      ~SupplyCurveConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SupplyCurveConfig.NAME
+      ~SupplyCurveConfig.REQUIREMENTS
+      ~SupplyCurveConfig.analysis_years
+      ~SupplyCurveConfig.avail_cap_frac
+      ~SupplyCurveConfig.config_dir
+      ~SupplyCurveConfig.config_keys
+      ~SupplyCurveConfig.dirout
+      ~SupplyCurveConfig.downwind
+      ~SupplyCurveConfig.execution_control
+      ~SupplyCurveConfig.fixed_charge_rate
+      ~SupplyCurveConfig.line_limited
+      ~SupplyCurveConfig.log_level
+      ~SupplyCurveConfig.logdir
+      ~SupplyCurveConfig.n_dirs
+      ~SupplyCurveConfig.name
+      ~SupplyCurveConfig.offshore_compete
+      ~SupplyCurveConfig.sc_features
+      ~SupplyCurveConfig.sc_points
+      ~SupplyCurveConfig.simple
+      ~SupplyCurveConfig.sort_on
+      ~SupplyCurveConfig.trans_table
+      ~SupplyCurveConfig.transmission_costs
+      ~SupplyCurveConfig.wind_dirs
+   
+   

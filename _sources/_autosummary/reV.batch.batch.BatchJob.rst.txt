@@ -1,0 +1,36 @@
+reV.batch.batch.BatchJob
+========================
+
+.. currentmodule:: reV.batch.batch
+
+.. autoclass:: BatchJob
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~BatchJob.cancel_all
+      ~BatchJob.delete_all
+      ~BatchJob.run
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BatchJob.arg_combs
+      ~BatchJob.file_sets
+      ~BatchJob.job_table
+      ~BatchJob.job_tags
+      ~BatchJob.sub_dirs
+   
+   

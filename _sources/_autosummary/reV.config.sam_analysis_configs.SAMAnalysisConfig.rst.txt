@@ -1,0 +1,62 @@
+reV.config.sam\_analysis\_configs.SAMAnalysisConfig
+===================================================
+
+.. currentmodule:: reV.config.sam_analysis_configs
+
+.. autoclass:: SAMAnalysisConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SAMAnalysisConfig.check_files
+      ~SAMAnalysisConfig.check_overwrite_keys
+      ~SAMAnalysisConfig.clear
+      ~SAMAnalysisConfig.copy
+      ~SAMAnalysisConfig.fromkeys
+      ~SAMAnalysisConfig.get
+      ~SAMAnalysisConfig.get_file
+      ~SAMAnalysisConfig.items
+      ~SAMAnalysisConfig.keys
+      ~SAMAnalysisConfig.parse_points_control
+      ~SAMAnalysisConfig.parse_sam_config
+      ~SAMAnalysisConfig.pop
+      ~SAMAnalysisConfig.popitem
+      ~SAMAnalysisConfig.set_self_dict
+      ~SAMAnalysisConfig.setdefault
+      ~SAMAnalysisConfig.str_replace
+      ~SAMAnalysisConfig.update
+      ~SAMAnalysisConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SAMAnalysisConfig.NAME
+      ~SAMAnalysisConfig.REQUIREMENTS
+      ~SAMAnalysisConfig.analysis_years
+      ~SAMAnalysisConfig.config_dir
+      ~SAMAnalysisConfig.config_keys
+      ~SAMAnalysisConfig.dirout
+      ~SAMAnalysisConfig.execution_control
+      ~SAMAnalysisConfig.log_level
+      ~SAMAnalysisConfig.logdir
+      ~SAMAnalysisConfig.name
+      ~SAMAnalysisConfig.output_request
+      ~SAMAnalysisConfig.project_points
+      ~SAMAnalysisConfig.sam_files
+      ~SAMAnalysisConfig.site_data
+      ~SAMAnalysisConfig.technology
+      ~SAMAnalysisConfig.timeout
+   
+   

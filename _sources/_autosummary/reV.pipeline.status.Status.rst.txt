@@ -1,0 +1,49 @@
+reV.pipeline.status.Status
+==========================
+
+.. currentmodule:: reV.pipeline.status
+
+.. autoclass:: Status
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Status.add_job
+      ~Status.clear
+      ~Status.copy
+      ~Status.fromkeys
+      ~Status.get
+      ~Status.items
+      ~Status.job_exists
+      ~Status.keys
+      ~Status.make_job_file
+      ~Status.pop
+      ~Status.popitem
+      ~Status.retrieve_job_status
+      ~Status.set_job_status
+      ~Status.setdefault
+      ~Status.update
+      ~Status.update_dict
+      ~Status.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Status.FROZEN_STATUS
+      ~Status.hardware
+      ~Status.job_ids
+      ~Status.subprocess_manager
+   
+   

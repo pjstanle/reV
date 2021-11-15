@@ -1,0 +1,65 @@
+reV.config.sam\_analysis\_configs.EconConfig
+============================================
+
+.. currentmodule:: reV.config.sam_analysis_configs
+
+.. autoclass:: EconConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EconConfig.check_files
+      ~EconConfig.check_overwrite_keys
+      ~EconConfig.clear
+      ~EconConfig.copy
+      ~EconConfig.fromkeys
+      ~EconConfig.get
+      ~EconConfig.get_file
+      ~EconConfig.items
+      ~EconConfig.keys
+      ~EconConfig.parse_cf_files
+      ~EconConfig.parse_points_control
+      ~EconConfig.parse_sam_config
+      ~EconConfig.pop
+      ~EconConfig.popitem
+      ~EconConfig.set_self_dict
+      ~EconConfig.setdefault
+      ~EconConfig.str_replace
+      ~EconConfig.update
+      ~EconConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~EconConfig.NAME
+      ~EconConfig.REQUIREMENTS
+      ~EconConfig.analysis_years
+      ~EconConfig.append
+      ~EconConfig.cf_file
+      ~EconConfig.config_dir
+      ~EconConfig.config_keys
+      ~EconConfig.dirout
+      ~EconConfig.execution_control
+      ~EconConfig.log_level
+      ~EconConfig.logdir
+      ~EconConfig.name
+      ~EconConfig.output_request
+      ~EconConfig.project_points
+      ~EconConfig.sam_files
+      ~EconConfig.site_data
+      ~EconConfig.technology
+      ~EconConfig.timeout
+   
+   

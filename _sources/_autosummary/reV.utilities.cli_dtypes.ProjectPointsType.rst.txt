@@ -1,0 +1,39 @@
+reV.utilities.cli\_dtypes.ProjectPointsType
+===========================================
+
+.. currentmodule:: reV.utilities.cli_dtypes
+
+.. autoclass:: ProjectPointsType
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ProjectPointsType.convert
+      ~ProjectPointsType.fail
+      ~ProjectPointsType.get_metavar
+      ~ProjectPointsType.get_missing_message
+      ~ProjectPointsType.shell_complete
+      ~ProjectPointsType.split_envvar_value
+      ~ProjectPointsType.to_info_dict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ProjectPointsType.arity
+      ~ProjectPointsType.envvar_list_splitter
+      ~ProjectPointsType.is_composite
+      ~ProjectPointsType.name
+   
+   

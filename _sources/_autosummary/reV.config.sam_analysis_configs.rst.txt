@@ -1,0 +1,33 @@
+reV.config.sam\_analysis\_configs
+=================================
+
+.. automodule:: reV.config.sam_analysis_configs
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      EconConfig
+      GenConfig
+      SAMAnalysisConfig
+   
+   
+
+   
+   
+   
+
+
+

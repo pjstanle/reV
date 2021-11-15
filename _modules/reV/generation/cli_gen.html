@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>reV.generation.cli_gen &mdash; reV 0.5.12 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> reV
+          </a>
+              <div class="version">
+                0.5.12
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/installation_usage.html">Installation and Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/installation.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/installation.html#option-1-install-from-pip-or-conda-recommended-for-analysts">Option 1: Install from PIP or Conda (recommended for analysts):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/installation.html#option-2-clone-repo-recommended-for-developers">Option 2: Clone repo (recommended for developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/installation.html#usage-on-eagle">Usage on Eagle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/installation.html#launching-a-run">Launching a run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/installation.html#general-run-times-and-node-configuration-on-eagle">General Run times and Node configuration on Eagle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/installation.html#command-line-tools">Command Line Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.project_points.html">reV Project Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.project_points.html#command-line-interface-cli">Command Line Interface (CLI)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.running_locally.html">Run reV locally</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.running_locally.html#id1">reV Gen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_locally.html#windpower">windpower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_locally.html#pvwatts">pvwatts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.running_locally.html#command-line-interface-cli">Command Line Interface (CLI)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_locally.html#id3">windpower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_locally.html#id4">pvwatts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.single_module_execution.html">Single Module Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.full_pipeline_execution.html">Full Pipeline Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.full_pipeline_execution.html#pipeline-input-requirements">Pipeline Input Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.full_pipeline_execution.html#failed-jobs">Failed Jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.full_pipeline_execution.html#file-inputs">File Inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.batched_execution.html">Batched Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.batched_execution.html#batching-config-description">Batching Config Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.batched_execution.html#how-to-run">How to Run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.advanced_econ_modeling.html">SAM Single Owner Modeling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.advanced_econ_modeling.html#workflow-description">Workflow Description</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.offshore_wind.html">Offshore Wind Modeling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.offshore_wind.html#rev-offshore-module-description">reV Offshore Module Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.offshore_wind.html#treatment-of-offshore-points-in-supply-curve">Treatment of Offshore Points in Supply Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.offshore_wind.html#plots-of-the-example-offshore-output">Plots of the Example Offshore Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.eagle_node_requests.html">Eagle Node Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html">Running with HSDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#setting-up-hsds">Setting up HSDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#using-hsds-with-rev">Using HSDS with reV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#rev-gen">reV Gen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#windpower">windpower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#pvwatts">pvwatts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#command-line-interface-cli">Command Line Interface (CLI)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#id3">windpower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/examples.running_with_hsds.html#id4">pvwatts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/reV.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.SAM.html">reV.SAM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.SAM.SAM.html">reV.SAM.SAM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.SAM.RevPySam.html">reV.SAM.SAM.RevPySam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.SAM.Sam.html">reV.SAM.SAM.Sam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.SAM.SamResourceRetriever.html">reV.SAM.SAM.SamResourceRetriever</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.html">reV.SAM.defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultLCOE.html">reV.SAM.defaults.DefaultLCOE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultLinearFresnelDsgIph.html">reV.SAM.defaults.DefaultLinearFresnelDsgIph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultMhkWave.html">reV.SAM.defaults.DefaultMhkWave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultPvSamv1.html">reV.SAM.defaults.DefaultPvSamv1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultPvWattsv5.html">reV.SAM.defaults.DefaultPvWattsv5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultPvWattsv7.html">reV.SAM.defaults.DefaultPvWattsv7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultSingleOwner.html">reV.SAM.defaults.DefaultSingleOwner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultSwh.html">reV.SAM.defaults.DefaultSwh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultTcsMoltenSalt.html">reV.SAM.defaults.DefaultTcsMoltenSalt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultTroughPhysicalProcessHeat.html">reV.SAM.defaults.DefaultTroughPhysicalProcessHeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.defaults.DefaultWindPower.html">reV.SAM.defaults.DefaultWindPower</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.SAM.econ.html">reV.SAM.econ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.econ.Economic.html">reV.SAM.econ.Economic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.econ.LCOE.html">reV.SAM.econ.LCOE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.econ.SingleOwner.html">reV.SAM.econ.SingleOwner</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.html">reV.SAM.generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.AbstractSamGeneration.html">reV.SAM.generation.AbstractSamGeneration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.AbstractSamPv.html">reV.SAM.generation.AbstractSamPv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.AbstractSamSolar.html">reV.SAM.generation.AbstractSamSolar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.AbstractSamSolarThermal.html">reV.SAM.generation.AbstractSamSolarThermal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.LinearDirectSteam.html">reV.SAM.generation.LinearDirectSteam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.MhkWave.html">reV.SAM.generation.MhkWave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.PvSamv1.html">reV.SAM.generation.PvSamv1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.PvWattsv5.html">reV.SAM.generation.PvWattsv5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.PvWattsv7.html">reV.SAM.generation.PvWattsv7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.SolarWaterHeat.html">reV.SAM.generation.SolarWaterHeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.TcsMoltenSalt.html">reV.SAM.generation.TcsMoltenSalt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.TroughPhysicalHeat.html">reV.SAM.generation.TroughPhysicalHeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.generation.WindPower.html">reV.SAM.generation.WindPower</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.SAM.version_checker.html">reV.SAM.version_checker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.version_checker.PySamVersionChecker.html">reV.SAM.version_checker.PySamVersionChecker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.SAM.windbos.html">reV.SAM.windbos</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.SAM.windbos.WindBos.html">reV.SAM.windbos.WindBos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.batch.html">reV.batch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.batch.batch.html">reV.batch.batch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.batch.batch.BatchJob.html">reV.batch.batch.BatchJob</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.batch.cli_batch.html">reV.batch.cli_batch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.cli.html">reV.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.config.html">reV.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.base_analysis_config.html">reV.config.base_analysis_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.base_analysis_config.AnalysisConfig.html">reV.config.base_analysis_config.AnalysisConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.base_config.html">reV.config.base_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.base_config.BaseConfig.html">reV.config.base_config.BaseConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.batch.html">reV.config.batch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.batch.BatchConfig.html">reV.config.batch.BatchConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.batch.BatchCsv.html">reV.config.batch.BatchCsv</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.cli_project_points.html">reV.config.cli_project_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.collection.html">reV.config.collection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.collection.CollectionConfig.html">reV.config.collection.CollectionConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.curtailment.html">reV.config.curtailment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.curtailment.Curtailment.html">reV.config.curtailment.Curtailment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.execution.html">reV.config.execution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.execution.BaseExecutionConfig.html">reV.config.execution.BaseExecutionConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.execution.HPCConfig.html">reV.config.execution.HPCConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.execution.SlurmConfig.html">reV.config.execution.SlurmConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.multi_year.html">reV.config.multi_year</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.multi_year.MultiYearConfig.html">reV.config.multi_year.MultiYearConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.multi_year.MultiYearGroup.html">reV.config.multi_year.MultiYearGroup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.offshore_config.html">reV.config.offshore_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.offshore_config.OffshoreConfig.html">reV.config.offshore_config.OffshoreConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.output_request.html">reV.config.output_request</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.output_request.OutputRequest.html">reV.config.output_request.OutputRequest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.output_request.SAMOutputRequest.html">reV.config.output_request.SAMOutputRequest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.pipeline.html">reV.config.pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.pipeline.PipelineConfig.html">reV.config.pipeline.PipelineConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.project_points.html">reV.config.project_points</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.project_points.PointsControl.html">reV.config.project_points.PointsControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.project_points.ProjectPoints.html">reV.config.project_points.ProjectPoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.qa_qc_config.html">reV.config.qa_qc_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.qa_qc_config.QaQcConfig.html">reV.config.qa_qc_config.QaQcConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.qa_qc_config.QaQcModule.html">reV.config.qa_qc_config.QaQcModule</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.rep_profiles_config.html">reV.config.rep_profiles_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.rep_profiles_config.RepProfilesConfig.html">reV.config.rep_profiles_config.RepProfilesConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.sam_analysis_configs.html">reV.config.sam_analysis_configs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.sam_analysis_configs.EconConfig.html">reV.config.sam_analysis_configs.EconConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.sam_analysis_configs.GenConfig.html">reV.config.sam_analysis_configs.GenConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.sam_analysis_configs.SAMAnalysisConfig.html">reV.config.sam_analysis_configs.SAMAnalysisConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.sam_config.html">reV.config.sam_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.sam_config.SAMConfig.html">reV.config.sam_config.SAMConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.sam_config.SAMInputsChecker.html">reV.config.sam_config.SAMInputsChecker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.config.supply_curve_configs.html">reV.config.supply_curve_configs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.supply_curve_configs.SupplyCurveAggregationConfig.html">reV.config.supply_curve_configs.SupplyCurveAggregationConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.config.supply_curve_configs.SupplyCurveConfig.html">reV.config.supply_curve_configs.SupplyCurveConfig</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.econ.html">reV.econ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.econ.cli_econ.html">reV.econ.cli_econ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.econ.cli_econ.get_node_cmd.html">reV.econ.cli_econ.get_node_cmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.econ.cli_econ.get_node_pc.html">reV.econ.cli_econ.get_node_pc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.econ.cli_econ.submit_from_config.html">reV.econ.cli_econ.submit_from_config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.econ.econ.html">reV.econ.econ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.econ.econ.Econ.html">reV.econ.econ.Econ</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.econ.economies_of_scale.html">reV.econ.economies_of_scale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.econ.economies_of_scale.EconomiesOfScale.html">reV.econ.economies_of_scale.EconomiesOfScale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.econ.utilities.html">reV.econ.utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.econ.utilities.lcoe_fcr.html">reV.econ.utilities.lcoe_fcr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.generation.html">reV.generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.generation.base.html">reV.generation.base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.base.BaseGen.html">reV.generation.base.BaseGen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.generation.cli_gen.html">reV.generation.cli_gen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.cli_gen.get_node_cmd.html">reV.generation.cli_gen.get_node_cmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.cli_gen.get_node_name_fout.html">reV.generation.cli_gen.get_node_name_fout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.cli_gen.get_node_pc.html">reV.generation.cli_gen.get_node_pc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.cli_gen.make_fout.html">reV.generation.cli_gen.make_fout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.cli_gen.submit_from_config.html">reV.generation.cli_gen.submit_from_config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.generation.generation.html">reV.generation.generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.generation.generation.Gen.html">reV.generation.generation.Gen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.handlers.html">reV.handlers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.cli_collect.html">reV.handlers.cli_collect</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.cli_collect.get_node_cmd.html">reV.handlers.cli_collect.get_node_cmd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.cli_multi_year.html">reV.handlers.cli_multi_year</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.cli_multi_year.get_slurm_cmd.html">reV.handlers.cli_multi_year.get_slurm_cmd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.collection.html">reV.handlers.collection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.collection.Collector.html">reV.handlers.collection.Collector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.collection.DatasetCollector.html">reV.handlers.collection.DatasetCollector</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.exclusions.html">reV.handlers.exclusions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.exclusions.ExclusionLayers.html">reV.handlers.exclusions.ExclusionLayers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.multi_year.html">reV.handlers.multi_year</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.multi_year.MultiYear.html">reV.handlers.multi_year.MultiYear</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.outputs.html">reV.handlers.outputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.outputs.Outputs.html">reV.handlers.outputs.Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.handlers.transmission.html">reV.handlers.transmission</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.transmission.TransmissionCosts.html">reV.handlers.transmission.TransmissionCosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.handlers.transmission.TransmissionFeatures.html">reV.handlers.transmission.TransmissionFeatures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.offshore.html">reV.offshore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.offshore.cli_offshore.html">reV.offshore.cli_offshore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.offshore.cli_offshore.get_node_cmd.html">reV.offshore.cli_offshore.get_node_cmd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.offshore.offshore.html">reV.offshore.offshore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.offshore.offshore.Offshore.html">reV.offshore.offshore.Offshore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.pipeline.html">reV.pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.pipeline.cli_pipeline.html">reV.pipeline.cli_pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.pipeline.cli_pipeline.pipeline_monitor_background.html">reV.pipeline.cli_pipeline.pipeline_monitor_background</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.pipeline.pipeline.html">reV.pipeline.pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.pipeline.pipeline.Pipeline.html">reV.pipeline.pipeline.Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.pipeline.status.html">reV.pipeline.status</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.pipeline.status.Status.html">reV.pipeline.status.Status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.html">reV.qa_qc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.cli_qa_qc.html">reV.qa_qc.cli_qa_qc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.cli_qa_qc.get_excl_cmd.html">reV.qa_qc.cli_qa_qc.get_excl_cmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.cli_qa_qc.get_h5_cmd.html">reV.qa_qc.cli_qa_qc.get_h5_cmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.cli_qa_qc.get_multiple_cmds.html">reV.qa_qc.cli_qa_qc.get_multiple_cmds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.cli_qa_qc.get_sc_cmd.html">reV.qa_qc.cli_qa_qc.get_sc_cmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.cli_qa_qc.launch_slurm.html">reV.qa_qc.cli_qa_qc.launch_slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.qa_qc.html">reV.qa_qc.qa_qc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.qa_qc.QaQc.html">reV.qa_qc.qa_qc.QaQc</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.html">reV.qa_qc.summary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.ExclusionsMask.html">reV.qa_qc.summary.ExclusionsMask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.PlotBase.html">reV.qa_qc.summary.PlotBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.SummarizeH5.html">reV.qa_qc.summary.SummarizeH5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.SummarizeSupplyCurve.html">reV.qa_qc.summary.SummarizeSupplyCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.SummaryPlots.html">reV.qa_qc.summary.SummaryPlots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.qa_qc.summary.SupplyCurvePlot.html">reV.qa_qc.summary.SupplyCurvePlot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.html">reV.rep_profiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.cli_rep_profiles.html">reV.rep_profiles.cli_rep_profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.cli_rep_profiles.get_node_cmd.html">reV.rep_profiles.cli_rep_profiles.get_node_cmd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.rep_profiles.html">reV.rep_profiles.rep_profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.rep_profiles.AggregatedRepProfiles.html">reV.rep_profiles.rep_profiles.AggregatedRepProfiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.rep_profiles.RegionRepProfile.html">reV.rep_profiles.rep_profiles.RegionRepProfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.rep_profiles.RepProfiles.html">reV.rep_profiles.rep_profiles.RepProfiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.rep_profiles.RepProfilesBase.html">reV.rep_profiles.rep_profiles.RepProfilesBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.rep_profiles.rep_profiles.RepresentativeMethods.html">reV.rep_profiles.rep_profiles.RepresentativeMethods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.html">reV.supply_curve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.aggregation.html">reV.supply_curve.aggregation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.aggregation.AbstractAggFileHandler.html">reV.supply_curve.aggregation.AbstractAggFileHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.aggregation.AbstractAggregation.html">reV.supply_curve.aggregation.AbstractAggregation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.aggregation.AggFileHandler.html">reV.supply_curve.aggregation.AggFileHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.aggregation.Aggregation.html">reV.supply_curve.aggregation.Aggregation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.cli_sc_aggregation.html">reV.supply_curve.cli_sc_aggregation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.cli_sc_aggregation.get_node_cmd.html">reV.supply_curve.cli_sc_aggregation.get_node_cmd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.cli_supply_curve.html">reV.supply_curve.cli_supply_curve</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.cli_supply_curve.get_node_cmd.html">reV.supply_curve.cli_supply_curve.get_node_cmd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.competitive_wind_farms.html">reV.supply_curve.competitive_wind_farms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.competitive_wind_farms.CompetitiveWindFarms.html">reV.supply_curve.competitive_wind_farms.CompetitiveWindFarms</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.exclusions.html">reV.supply_curve.exclusions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.exclusions.ExclusionMask.html">reV.supply_curve.exclusions.ExclusionMask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.exclusions.ExclusionMaskFromDict.html">reV.supply_curve.exclusions.ExclusionMaskFromDict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.exclusions.FrictionMask.html">reV.supply_curve.exclusions.FrictionMask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.exclusions.LayerMask.html">reV.supply_curve.exclusions.LayerMask</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.extent.html">reV.supply_curve.extent</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.extent.SupplyCurveExtent.html">reV.supply_curve.extent.SupplyCurveExtent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.points.html">reV.supply_curve.points</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.points.AbstractSupplyCurvePoint.html">reV.supply_curve.points.AbstractSupplyCurvePoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.points.AggregationSupplyCurvePoint.html">reV.supply_curve.points.AggregationSupplyCurvePoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.points.GenerationSupplyCurvePoint.html">reV.supply_curve.points.GenerationSupplyCurvePoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.points.SupplyCurvePoint.html">reV.supply_curve.points.SupplyCurvePoint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.sc_aggregation.html">reV.supply_curve.sc_aggregation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.sc_aggregation.SupplyCurveAggFileHandler.html">reV.supply_curve.sc_aggregation.SupplyCurveAggFileHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.sc_aggregation.SupplyCurveAggregation.html">reV.supply_curve.sc_aggregation.SupplyCurveAggregation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.supply_curve.html">reV.supply_curve.supply_curve</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.supply_curve.SupplyCurve.html">reV.supply_curve.supply_curve.SupplyCurve</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.tech_mapping.html">reV.supply_curve.tech_mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.supply_curve.tech_mapping.TechMapping.html">reV.supply_curve.tech_mapping.TechMapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.utilities.html">reV.utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.utilities.log_versions.html">reV.utilities.log_versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.utilities.cli_dtypes.html">reV.utilities.cli_dtypes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.cli_dtypes.ProjectPointsType.html">reV.utilities.cli_dtypes.ProjectPointsType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.cli_dtypes.SAMFilesType.html">reV.utilities.cli_dtypes.SAMFilesType</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.utilities.curtailment.html">reV.utilities.curtailment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.curtailment.curtail.html">reV.utilities.curtailment.curtail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.html">reV.utilities.exceptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.CollectionRuntimeError.html">reV.utilities.exceptions.CollectionRuntimeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.CollectionValueError.html">reV.utilities.exceptions.CollectionValueError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.CollectionWarning.html">reV.utilities.exceptions.CollectionWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ConfigError.html">reV.utilities.exceptions.ConfigError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ConfigWarning.html">reV.utilities.exceptions.ConfigWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.DataShapeError.html">reV.utilities.exceptions.DataShapeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.EmptySupplyCurvePointError.html">reV.utilities.exceptions.EmptySupplyCurvePointError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ExclusionLayerError.html">reV.utilities.exceptions.ExclusionLayerError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ExecutionError.html">reV.utilities.exceptions.ExecutionError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ExtrapolationWarning.html">reV.utilities.exceptions.ExtrapolationWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.FileInputError.html">reV.utilities.exceptions.FileInputError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.FileInputWarning.html">reV.utilities.exceptions.FileInputWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.HandlerKeyError.html">reV.utilities.exceptions.HandlerKeyError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.HandlerRuntimeError.html">reV.utilities.exceptions.HandlerRuntimeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.HandlerValueError.html">reV.utilities.exceptions.HandlerValueError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.HandlerWarning.html">reV.utilities.exceptions.HandlerWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.InputError.html">reV.utilities.exceptions.InputError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.InputWarning.html">reV.utilities.exceptions.InputWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.JSONError.html">reV.utilities.exceptions.JSONError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.MultiFileExclusionError.html">reV.utilities.exceptions.MultiFileExclusionError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.NearestNeighborError.html">reV.utilities.exceptions.NearestNeighborError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.OffshoreWindInputError.html">reV.utilities.exceptions.OffshoreWindInputError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.OffshoreWindInputWarning.html">reV.utilities.exceptions.OffshoreWindInputWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.OutputWarning.html">reV.utilities.exceptions.OutputWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ParallelExecutionWarning.html">reV.utilities.exceptions.ParallelExecutionWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.PipelineError.html">reV.utilities.exceptions.PipelineError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ProjectPointsValueError.html">reV.utilities.exceptions.ProjectPointsValueError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.PySAMVersionError.html">reV.utilities.exceptions.PySAMVersionError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.PySAMVersionWarning.html">reV.utilities.exceptions.PySAMVersionWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.ResourceError.html">reV.utilities.exceptions.ResourceError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SAMExecutionError.html">reV.utilities.exceptions.SAMExecutionError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SAMExecutionWarning.html">reV.utilities.exceptions.SAMExecutionWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SAMInputError.html">reV.utilities.exceptions.SAMInputError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SAMInputWarning.html">reV.utilities.exceptions.SAMInputWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SlurmWarning.html">reV.utilities.exceptions.SlurmWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SupplyCurveError.html">reV.utilities.exceptions.SupplyCurveError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.SupplyCurveInputError.html">reV.utilities.exceptions.SupplyCurveInputError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.reVDeprecationWarning.html">reV.utilities.exceptions.reVDeprecationWarning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.exceptions.reVError.html">reV.utilities.exceptions.reVError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_autosummary/reV.utilities.slots.html">reV.utilities.slots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_autosummary/reV.utilities.slots.SlottedDict.html">reV.utilities.slots.SlottedDict</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_autosummary/reV.version.html">reV.version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_cli/cli.html">CLI reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-batch.html">reV-batch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-batch.html#rev-batch-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-batch.html#rev-batch-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-collect.html">reV-collect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-collect.html#rev-collect-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-collect.html#rev-collect-direct-collect">collect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-collect.html#rev-collect-direct-collect-slurm">collect-slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-collect.html#rev-collect-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-collect.html#rev-collect-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-econ.html">reV-econ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-econ.html#rev-econ-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-econ.html#rev-econ-direct-local">local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-econ.html#rev-econ-direct-slurm">slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-econ.html#rev-econ-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-econ.html#rev-econ-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-gen.html">reV-gen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-gen.html#rev-gen-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-gen.html#rev-gen-direct-local">local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-gen.html#rev-gen-direct-slurm">slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-gen.html#rev-gen-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-gen.html#rev-gen-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-multiyear.html">reV-multiyear</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-multiyear.html#rev-multiyear-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-multiyear.html#rev-multiyear-direct-multi-year">multi-year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-multiyear.html#rev-multiyear-direct-multi-year-groups">multi-year-groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-multiyear.html#rev-multiyear-direct-multi-year-slurm">multi-year-slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-multiyear.html#rev-multiyear-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-multiyear.html#rev-multiyear-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-offshore.html">reV-offshore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-offshore.html#rev-offshore-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-offshore.html#rev-offshore-direct-slurm">slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-offshore.html#rev-offshore-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-offshore.html#rev-offshore-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-pipeline.html">reV-pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-pipeline.html#rev-pipeline-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-pipeline.html#rev-pipeline-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-project-points.html">reV-project-points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-project-points.html#rev-project-points-from-lat-lons">from-lat-lons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-project-points.html#rev-project-points-from-regions">from-regions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-QA-QC.html">reV-QA-QC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-exclusions">exclusions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-rev-h5">rev-h5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-summarize">summarize</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-summarize-exclusions-mask">exclusions-mask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-summarize-h5">h5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-summarize-scatter-plots">scatter-plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-summarize-supply-curve-plot">supply-curve-plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-summarize-supply-curve-table">supply-curve-table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-supply-curve">supply-curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-QA-QC.html#rev-qa-qc-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-rep-profiles.html">reV-rep-profiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-rep-profiles.html#rev-rep-profiles-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-rep-profiles.html#rev-rep-profiles-direct-slurm">slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-rep-profiles.html#rev-rep-profiles-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-rep-profiles.html#rev-rep-profiles-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-supply-curve-aggregation.html">reV-supply-curve-aggregation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-supply-curve-aggregation.html#rev-supply-curve-aggregation-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-supply-curve-aggregation.html#rev-supply-curve-aggregation-direct-slurm">slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-supply-curve-aggregation.html#rev-supply-curve-aggregation-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-supply-curve-aggregation.html#rev-supply-curve-aggregation-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV-supply-curve.html">reV-supply-curve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-supply-curve.html#rev-supply-curve-direct">direct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV-supply-curve.html#rev-supply-curve-direct-slurm">slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-supply-curve.html#rev-supply-curve-from-config">from-config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV-supply-curve.html#rev-supply-curve-valid-config-keys">valid-config-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_cli/reV.html">reV</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-batch">batch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-batch-valid-batch-keys">valid-batch-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-collect">collect</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-collect-valid-collect-keys">valid-collect-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-econ">econ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-econ-valid-econ-keys">valid-econ-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-generation">generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-generation-valid-generation-keys">valid-generation-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-multi-year">multi-year</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-multi-year-valid-multi-year-keys">valid-multi-year-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-offshore">offshore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-offshore-valid-offshore-keys">valid-offshore-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-pipeline">pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-pipeline-valid-pipeline-keys">valid-pipeline-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-qa-qc">qa-qc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-qa-qc-valid-qa-qc-keys">valid-qa-qc-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-rep-profiles">rep-profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-rep-profiles-valid-rep-profiles-keys">valid-rep-profiles-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-supply-curve">supply-curve</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-supply-curve-valid-supply-curve-keys">valid-supply-curve-keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_cli/reV.html#rev-supply-curve-aggregation">supply-curve-aggregation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../_cli/reV.html#rev-supply-curve-aggregation-valid-supply-curve-aggregation-keys">valid-supply-curve-aggregation-keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">reV</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>reV.generation.cli_gen</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for reV.generation.cli_gen</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># pylint: disable=all</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Generation CLI entry points.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">click</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+
+<span class="kn">from</span> <span class="nn">reV.config.cli_project_points</span> <span class="kn">import</span> <span class="n">_parse_lat_lons</span><span class="p">,</span> <span class="n">_parse_regions</span>
+<span class="kn">from</span> <span class="nn">reV.config.project_points</span> <span class="kn">import</span> <span class="n">ProjectPoints</span><span class="p">,</span> <span class="n">PointsControl</span>
+<span class="kn">from</span> <span class="nn">reV.config.sam_analysis_configs</span> <span class="kn">import</span> <span class="n">GenConfig</span>
+<span class="kn">from</span> <span class="nn">reV.generation.generation</span> <span class="kn">import</span> <span class="n">Gen</span>
+<span class="kn">from</span> <span class="nn">reV.pipeline.status</span> <span class="kn">import</span> <span class="n">Status</span>
+<span class="kn">from</span> <span class="nn">reV.utilities.exceptions</span> <span class="kn">import</span> <span class="n">ConfigError</span><span class="p">,</span> <span class="n">ProjectPointsValueError</span>
+<span class="kn">from</span> <span class="nn">reV.utilities.cli_dtypes</span> <span class="kn">import</span> <span class="n">SAMFILES</span><span class="p">,</span> <span class="n">PROJECTPOINTS</span>
+<span class="kn">from</span> <span class="nn">reV</span> <span class="kn">import</span> <span class="n">__version__</span>
+
+<span class="kn">from</span> <span class="nn">rex.utilities.cli_dtypes</span> <span class="kn">import</span> <span class="n">INT</span><span class="p">,</span> <span class="n">STR</span><span class="p">,</span> <span class="n">INTLIST</span><span class="p">,</span> <span class="n">STRLIST</span>
+<span class="kn">from</span> <span class="nn">rex.utilities.hpc</span> <span class="kn">import</span> <span class="n">SLURM</span>
+<span class="kn">from</span> <span class="nn">rex.utilities.loggers</span> <span class="kn">import</span> <span class="n">init_mult</span>
+<span class="kn">from</span> <span class="nn">rex.utilities.utilities</span> <span class="kn">import</span> <span class="n">parse_year</span><span class="p">,</span> <span class="n">get_class_properties</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--name&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;reV-gen&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;reV generation job name, by default &quot;reV-gen&quot;.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Flag to turn on debug logging. Default is not verbose.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;reV Generation Command Line Interface&quot;&quot;&quot;</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_object</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;VERBOSE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">verbose</span>
+
+
+<span class="nd">@main</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">valid_config_keys</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Echo the valid Gen config keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_class_properties</span><span class="p">(</span><span class="n">GenConfig</span><span class="p">)))</span>
+
+
+<span class="nd">@main</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--config_file&#39;</span><span class="p">,</span> <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;reV generation configuration json file.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Flag to turn on debug logging. Default is not verbose.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">config_file</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run reV gen from a config file.&quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">verbose</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;VERBOSE&#39;</span><span class="p">]])</span>
+
+    <span class="c1"># Instantiate the config object</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">GenConfig</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+
+    <span class="c1"># take name from config if not default</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;rev&#39;</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="c1"># Enforce verbosity if logging level is specified in the config</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">log_level</span> <span class="o">==</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># make output directory if does not exist</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">)</span>
+
+    <span class="c1"># initialize loggers.</span>
+    <span class="n">init_mult</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">logdir</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;reV&#39;</span><span class="p">,</span> <span class="s1">&#39;rex&#39;</span><span class="p">],</span>
+              <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+    <span class="c1"># Initial log statements</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Running reV Generation from config file: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config_file</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Target output directory: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Target logging directory: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">logdir</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;The following project points were specified: &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;project_points&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;The following SAM configs are available to this run:</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sam_files&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                                       <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;The following is being used for site specific input data: &#39;</span>
+                <span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">site_data</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;The full configuration input is as follows:</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span>
+                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)))</span>
+
+    <span class="c1"># set config objects to be passed through invoke to direct methods</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">technology</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;POINTS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">project_points</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SAM_FILES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">sam_files</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;LOGDIR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">logdir</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUTPUT_REQUEST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">output_request</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;GID_MAP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">gid_map</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITE_DATA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">site_data</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TIMEOUT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">timeout</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITES_PER_WORKER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">sites_per_worker</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;MAX_WORKERS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">max_workers</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;MEM_UTIL_LIM&#39;</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">memory_utilization_limit</span>
+
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;CURTAILMENT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">curtailment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># pass through the curtailment file, not the curtailment object</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;CURTAILMENT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;curtailment&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">analysis_years</span><span class="p">):</span>
+        <span class="n">submit_from_config</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="submit_from_config"><a class="viewcode-back" href="../../../_autosummary/reV.generation.cli_gen.submit_from_config.html#reV.generation.cli_gen.submit_from_config">[docs]</a><span class="k">def</span> <span class="nf">submit_from_config</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to submit one year from a config file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ctx : cli.ctx</span>
+<span class="sd">        Click context object. Use case: data = ctx.obj[&#39;key&#39;]</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Job name.</span>
+<span class="sd">    year : int | str | NoneType</span>
+<span class="sd">        4 digit year or None.</span>
+<span class="sd">    config : reV.config.GenConfig</span>
+<span class="sd">        Generation config object.</span>
+<span class="sd">    i : int</span>
+<span class="sd">        Index variable associated with the index of the year in analysis years.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        Flag to turn on debug logging. Default is not verbose.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">res_files</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">parse_res_files</span><span class="p">()</span>
+    <span class="c1"># set the year-specific variables</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;RES_FILE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="c1"># check to make sure that the year matches the resource file</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">res_files</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Resource file and year do not appear to match. &#39;</span>
+             <span class="s1">&#39;Expected the string representation of the year &#39;</span>
+             <span class="s1">&#39;to be in the resource file name. &#39;</span>
+             <span class="s1">&#39;Year: </span><span class="si">{}</span><span class="s1">, Resource file: </span><span class="si">{}</span><span class="s1">&#39;</span>
+             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">res_files</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+    <span class="c1"># if the year isn&#39;t in the name, add it before setting the file output</span>
+    <span class="n">fout</span> <span class="o">=</span> <span class="n">make_fout</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUT_FPATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+
+    <span class="c1"># invoke direct methods based on the config execution option</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;local&#39;</span><span class="p">:</span>
+        <span class="n">name_year</span> <span class="o">=</span> <span class="n">make_fout</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_year</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">retrieve_job_status</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">,</span> <span class="s1">&#39;generation&#39;</span><span class="p">,</span>
+                                            <span class="n">name_year</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;successful&#39;</span><span class="p">:</span>
+            <span class="n">Status</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">,</span> <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="n">name_year</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">job_attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;hardware&#39;</span><span class="p">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;fout&#39;</span><span class="p">:</span> <span class="n">fout</span><span class="p">,</span>
+                           <span class="s1">&#39;dirout&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">dirout</span><span class="p">})</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">local</span><span class="p">,</span>
+                       <span class="n">max_workers</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">max_workers</span><span class="p">,</span>
+                       <span class="n">timeout</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+                       <span class="n">points_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">option</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;eagle&#39;</span><span class="p">,</span> <span class="s1">&#39;slurm&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parse_year</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">year</span><span class="p">:</span>
+            <span class="c1"># Add year to name before submitting</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">slurm</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span>
+                   <span class="n">alloc</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">allocation</span><span class="p">,</span>
+                   <span class="n">walltime</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">walltime</span><span class="p">,</span>
+                   <span class="n">memory</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span>
+                   <span class="n">feature</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">feature</span><span class="p">,</span>
+                   <span class="n">conda_env</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">conda_env</span><span class="p">,</span>
+                   <span class="n">module</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">execution_control</span><span class="o">.</span><span class="n">module</span><span class="p">,</span>
+                   <span class="n">stdout_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">logdir</span><span class="p">,</span> <span class="s1">&#39;stdout&#39;</span><span class="p">),</span>
+                   <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="make_fout"><a class="viewcode-back" href="../../../_autosummary/reV.generation.cli_gen.make_fout.html#reV.generation.cli_gen.make_fout">[docs]</a><span class="k">def</span> <span class="nf">make_fout</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make an appropriate file output from name and year.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Job name.</span>
+<span class="sd">    year : int | str</span>
+<span class="sd">        Analysis year.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fout : str</span>
+<span class="sd">        .h5 output file based on name and year</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">parse_year</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># if the year isn&#39;t in the name, add it before setting the file output</span>
+    <span class="k">if</span> <span class="n">match</span> <span class="ow">and</span> <span class="n">year</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ConfigError</span><span class="p">(</span><span class="s1">&#39;Tried to submit gen job for </span><span class="si">{}</span><span class="s1">, but found a &#39;</span>
+                              <span class="s1">&#39;different year in the base job name: &quot;</span><span class="si">{}</span><span class="s1">&quot;. &#39;</span>
+                              <span class="s1">&#39;Please remove the year from the job name.&#39;</span>
+                              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">year</span><span class="p">:</span>
+        <span class="n">fout</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">.h5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span>
+                                <span class="n">match</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fout</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.h5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fout</span></div>
+
+
+<span class="nd">@main</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--tech&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;reV tech to analyze (required).&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--sam_files&#39;</span><span class="p">,</span> <span class="s1">&#39;-sf&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">SAMFILES</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;SAM config files (required) (str, dict, or list).&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--res_file&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Filepath to single resource file, multi-h5 directory, &#39;</span>
+              <span class="s1">&#39;or /h5_dir/prefix*suffix.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--out_fpath&#39;</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Ouput .h5 file path&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--points&#39;</span><span class="p">,</span> <span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">PROJECTPOINTS</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;reV project points to analyze &#39;</span>
+                    <span class="s1">&#39;(slice, list, or file string). &#39;</span>
+                    <span class="s1">&#39;Default is slice(0, 100)&#39;</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--lat_lon_fpath&#39;</span><span class="p">,</span> <span class="s1">&#39;-llf&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;File path to .csv or .json containing latitude, &#39;</span>
+                    <span class="s1">&#39;longitude coordinates of interest&#39;</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--lat_lon_coords&#39;</span><span class="p">,</span> <span class="s1">&#39;--llc&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;(lat, lon) coordinates of interest&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--regions&#39;</span><span class="p">,</span> <span class="s1">&#39;-regs&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;File path to .json containing regions of interest&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--region&#39;</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Region to extract&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--region_col&#39;</span><span class="p">,</span> <span class="s1">&#39;-col&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Meta column to search for region&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--sites_per_worker&#39;</span><span class="p">,</span> <span class="s1">&#39;-spw&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">INT</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Number of sites to run in series on a single worker. &#39;</span>
+                    <span class="s1">&#39;Default is the resource column chunk size.&#39;</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--logdir&#39;</span><span class="p">,</span> <span class="s1">&#39;-lo&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;./out/log_gen&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Generation log file directory. Default is ./out/log_gen&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--output_request&#39;</span><span class="p">,</span> <span class="s1">&#39;-or&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STRLIST</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cf_mean&#39;</span><span class="p">],</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;List of requested output variable names. &#39;</span>
+                    <span class="s1">&#39;Default is [&quot;cf_mean&quot;].&#39;</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--site_data&#39;</span><span class="p">,</span> <span class="s1">&#39;-sd&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Site-specific data file for gen calculation. Input &#39;</span>
+              <span class="s1">&#39;should be a filepath that points to a csv. Rows match sites, &#39;</span>
+              <span class="s1">&#39;columns are input keys. Needs a &quot;gid&quot; column. Input as None &#39;</span>
+              <span class="s1">&#39;if no site-specific data. Can be the same csv as the &#39;</span>
+              <span class="s1">&#39;project_points input&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--mem_util_lim&#39;</span><span class="p">,</span> <span class="s1">&#39;-mem&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Fractional node memory utilization limit. Default is 0.4 &#39;</span>
+              <span class="s1">&#39;to account for numpy memory spikes and memory bloat.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--curtailment&#39;</span><span class="p">,</span> <span class="s1">&#39;-curt&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Optional JSON file with curtailment inputs parameters.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--gid_map&#39;</span><span class="p">,</span> <span class="s1">&#39;-gm&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Optional gid mapping that can be used to map unique &#39;</span>
+              <span class="s1">&#39;generation gids to non-unique gids in the resource file. &#39;</span>
+              <span class="s1">&#39;Should be a filepath to a csv with columns gid and gid_map. &#39;</span>
+              <span class="s1">&#39;Can be the same csv as project_points input.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Flag to turn on debug logging. Default is not verbose.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">direct</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">out_fpath</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">lat_lon_fpath</span><span class="p">,</span>
+           <span class="n">lat_lon_coords</span><span class="p">,</span> <span class="n">regions</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="p">,</span> <span class="n">sites_per_worker</span><span class="p">,</span>
+           <span class="n">logdir</span><span class="p">,</span> <span class="n">output_request</span><span class="p">,</span> <span class="n">site_data</span><span class="p">,</span> <span class="n">mem_util_lim</span><span class="p">,</span>
+           <span class="n">curtailment</span><span class="p">,</span> <span class="n">gid_map</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run reV gen directly w/o a config file.&quot;&quot;&quot;</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tech</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;POINTS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SAM_FILES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sam_files</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;RES_FILE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_file</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITES_PER_WORKER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sites_per_worker</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUT_FPATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out_fpath</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;LOGDIR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logdir</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUTPUT_REQUEST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_request</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITE_DATA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">site_data</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;MEM_UTIL_LIM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mem_util_lim</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;CURTAILMENT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">curtailment</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;GID_MAP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gid_map</span>
+
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;LAT_LON_FPATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lat_lon_fpath</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;LAT_LON_COORDS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lat_lon_coords</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;REGIONS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">regions</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;REGION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">region</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;REGION_COL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">region_col</span>
+
+    <span class="n">verbose</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">verbose</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;VERBOSE&#39;</span><span class="p">]])</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_points</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse project points from CLI inputs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ctx : dict</span>
+<span class="sd">        CLI context object</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    points : slice | list | string | ProjectPoints</span>
+<span class="sd">        ProjectPoints or points to initialize ProjectPoints</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tech</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">]</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;POINTS&#39;</span><span class="p">]</span>
+    <span class="n">sam_files</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SAM_FILES&#39;</span><span class="p">]</span>
+    <span class="n">res_file</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;RES_FILE&#39;</span><span class="p">]</span>
+    <span class="n">curtailment</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;CURTAILMENT&#39;</span><span class="p">]</span>
+    <span class="n">lat_lon_fpath</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LAT_LON_FPATH&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">lat_lon_coords</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LAT_LON_COORDS&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">regions</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REGIONS&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">region</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">region_col</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REGION_COL&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">lat_lon_fpath</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">lat_lon_coords</span><span class="p">:</span>
+        <span class="n">lat_lons</span> <span class="o">=</span> <span class="n">_parse_lat_lons</span><span class="p">(</span><span class="n">lat_lon_fpath</span><span class="p">,</span> <span class="n">lat_lon_coords</span><span class="p">)</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">ProjectPoints</span><span class="o">.</span><span class="n">lat_lon_coords</span><span class="p">(</span><span class="n">lat_lons</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span>
+                                              <span class="n">sam_files</span><span class="p">,</span> <span class="n">tech</span><span class="o">=</span><span class="n">tech</span><span class="p">,</span>
+                                              <span class="n">curtailment</span><span class="o">=</span><span class="n">curtailment</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">regions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">regions</span> <span class="o">=</span> <span class="n">_parse_regions</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="p">)</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">ProjectPoints</span><span class="o">.</span><span class="n">regions</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span>
+                                       <span class="n">tech</span><span class="o">=</span><span class="n">tech</span><span class="p">,</span>
+                                       <span class="n">curtailment</span><span class="o">=</span><span class="n">curtailment</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">msg</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;reV Gen requires one of &#39;points&#39;, &#39;lat-lon-fpath&#39;, &quot;</span>
+               <span class="s2">&quot;&#39;lat-lon-coords&#39;, &#39;regions&#39;, or &#39;region&#39; and region-col&#39; &quot;</span>
+               <span class="s2">&quot;must be supplied to determine points to compute generation &quot;</span>
+               <span class="s2">&quot;for!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;reV Gen can only produce a unique set of Project Points for &quot;</span>
+               <span class="s2">&quot;a single input value for ONE of &#39;points&#39;, &#39;lat-lon-fpath&#39;, &quot;</span>
+               <span class="s2">&quot;&#39;lat-lon-coords&#39;, &#39;regions&#39;, or &#39;region&#39; and region-col&#39;&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">msg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">ProjectPointsValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">points</span>
+
+
+<span class="nd">@direct</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--max_workers&#39;</span><span class="p">,</span> <span class="s1">&#39;-mw&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">INT</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of workers. Use 1 for serial, None for all cores.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--timeout&#39;</span><span class="p">,</span> <span class="s1">&#39;-to&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">INT</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of seconds to wait for parallel generation run &#39;</span>
+              <span class="s1">&#39;iterations to complete before returning zeros. &#39;</span>
+              <span class="s1">&#39;Default is 1800 seconds.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--points_range&#39;</span><span class="p">,</span> <span class="s1">&#39;-pr&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">INTLIST</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Optional range list to run a subset of sites.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Flag to turn on debug logging.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">local</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">max_workers</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">points_range</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run generation on local worker(s).&quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span>
+    <span class="n">tech</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">]</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;POINTS&#39;</span><span class="p">]</span>
+    <span class="n">sam_files</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SAM_FILES&#39;</span><span class="p">]</span>
+    <span class="n">res_file</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;RES_FILE&#39;</span><span class="p">]</span>
+    <span class="n">sites_per_worker</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITES_PER_WORKER&#39;</span><span class="p">]</span>
+    <span class="n">out_fpath</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUT_FPATH&#39;</span><span class="p">]</span>
+    <span class="n">logdir</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;LOGDIR&#39;</span><span class="p">]</span>
+    <span class="n">output_request</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUTPUT_REQUEST&#39;</span><span class="p">]</span>
+    <span class="n">site_data</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITE_DATA&#39;</span><span class="p">]</span>
+    <span class="n">mem_util_lim</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;MEM_UTIL_LIM&#39;</span><span class="p">]</span>
+    <span class="n">curtailment</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;CURTAILMENT&#39;</span><span class="p">]</span>
+    <span class="n">gid_map</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;GID_MAP&#39;</span><span class="p">]</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">verbose</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;VERBOSE&#39;</span><span class="p">]])</span>
+
+    <span class="c1"># initialize loggers for multiple modules</span>
+    <span class="n">init_mult</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">logdir</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;reV&#39;</span><span class="p">,</span> <span class="s1">&#39;rex&#39;</span><span class="p">],</span>
+              <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;ctx var passed to local method: &quot;</span><span class="si">{}</span><span class="s1">&quot; : &quot;</span><span class="si">{}</span><span class="s1">&quot; with type &#39;</span>
+                     <span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">val</span><span class="p">)))</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Gen local is being run with with job name &quot;</span><span class="si">{}</span><span class="s1">&quot; and resource &#39;</span>
+                <span class="s1">&#39;file: </span><span class="si">{}</span><span class="s1">. Target output path is: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">out_fpath</span><span class="p">))</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="n">_parse_points</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+
+    <span class="c1"># Execute the Generation module with smart data flushing.</span>
+    <span class="n">Gen</span><span class="o">.</span><span class="n">reV_run</span><span class="p">(</span><span class="n">tech</span><span class="p">,</span>
+                <span class="n">points</span><span class="p">,</span>
+                <span class="n">sam_files</span><span class="p">,</span>
+                <span class="n">res_file</span><span class="p">,</span>
+                <span class="n">site_data</span><span class="o">=</span><span class="n">site_data</span><span class="p">,</span>
+                <span class="n">output_request</span><span class="o">=</span><span class="n">output_request</span><span class="p">,</span>
+                <span class="n">curtailment</span><span class="o">=</span><span class="n">curtailment</span><span class="p">,</span>
+                <span class="n">gid_map</span><span class="o">=</span><span class="n">gid_map</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+                <span class="n">sites_per_worker</span><span class="o">=</span><span class="n">sites_per_worker</span><span class="p">,</span>
+                <span class="n">points_range</span><span class="o">=</span><span class="n">points_range</span><span class="p">,</span>
+                <span class="n">out_fpath</span><span class="o">=</span><span class="n">out_fpath</span><span class="p">,</span>
+                <span class="n">mem_util_lim</span><span class="o">=</span><span class="n">mem_util_lim</span><span class="p">,</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+    <span class="n">tmp_str</span> <span class="o">=</span> <span class="s1">&#39; with points range </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">points_range</span><span class="p">)</span>
+    <span class="n">dirout</span><span class="p">,</span> <span class="n">fout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">out_fpath</span><span class="p">)</span>
+    <span class="n">runtime</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Gen compute complete for project points &quot;</span><span class="si">{0}</span><span class="s1">&quot;</span><span class="si">{1}</span><span class="s1">. &#39;</span>
+                <span class="s1">&#39;Time elapsed: </span><span class="si">{2:.2f}</span><span class="s1"> min. Target output dir: </span><span class="si">{3}</span><span class="s1">&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">tmp_str</span> <span class="k">if</span> <span class="n">points_range</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="n">runtime</span><span class="p">,</span> <span class="n">dirout</span><span class="p">))</span>
+
+    <span class="c1"># add job to reV status file.</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dirout&#39;</span><span class="p">:</span> <span class="n">dirout</span><span class="p">,</span> <span class="s1">&#39;fout&#39;</span><span class="p">:</span> <span class="n">fout</span><span class="p">,</span> <span class="s1">&#39;job_status&#39;</span><span class="p">:</span> <span class="s1">&#39;successful&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;runtime&#39;</span><span class="p">:</span> <span class="n">runtime</span><span class="p">,</span> <span class="s1">&#39;finput&#39;</span><span class="p">:</span> <span class="n">res_file</span><span class="p">}</span>
+    <span class="n">Status</span><span class="o">.</span><span class="n">make_job_file</span><span class="p">(</span><span class="n">dirout</span><span class="p">,</span> <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="get_node_pc"><a class="viewcode-back" href="../../../_autosummary/reV.generation.cli_gen.get_node_pc.html#reV.generation.cli_gen.get_node_pc">[docs]</a><span class="k">def</span> <span class="nf">get_node_pc</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">nodes</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get a PointsControl object to be send to HPC nodes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    points : slice | str | list | tuple</span>
+<span class="sd">        Slice/list specifying project points, string pointing to a project</span>
+<span class="sd">        points csv.</span>
+<span class="sd">    sam_files : dict | str | list</span>
+<span class="sd">        SAM input configuration ID(s) and file path(s). Keys are the SAM</span>
+<span class="sd">        config ID(s), top level value is the SAM path. Can also be a single</span>
+<span class="sd">        config file str. If it&#39;s a list, it is mapped to the sorted list</span>
+<span class="sd">        of unique configs requested by points csv.</span>
+<span class="sd">    tech : str</span>
+<span class="sd">        reV technology being executed.</span>
+<span class="sd">    res_file : str</span>
+<span class="sd">        Optional resource file to find maximum length of project points if</span>
+<span class="sd">        points slice stop is None.</span>
+<span class="sd">    nodes : int</span>
+<span class="sd">        Number of nodes that the PointsControl object is being split to.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pc : reV.config.project_points.PointsControl</span>
+<span class="sd">        PointsControl object to be iterated and send to HPC nodes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="c1"># create points control via points</span>
+        <span class="n">pp</span> <span class="o">=</span> <span class="n">ProjectPoints</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span> <span class="n">tech</span><span class="o">=</span><span class="n">tech</span><span class="p">,</span> <span class="n">res_file</span><span class="o">=</span><span class="n">res_file</span><span class="p">)</span>
+        <span class="n">sites_per_node</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span> <span class="o">/</span> <span class="n">nodes</span><span class="p">)</span>
+        <span class="n">pc</span> <span class="o">=</span> <span class="n">PointsControl</span><span class="p">(</span><span class="n">pp</span><span class="p">,</span> <span class="n">sites_per_split</span><span class="o">=</span><span class="n">sites_per_node</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Generation Points input type is unrecognized: &#39;</span>
+                        <span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">points</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">pc</span></div>
+
+
+<div class="viewcode-block" id="get_node_name_fout"><a class="viewcode-back" href="../../../_autosummary/reV.generation.cli_gen.get_node_name_fout.html#reV.generation.cli_gen.get_node_name_fout">[docs]</a><span class="k">def</span> <span class="nf">get_node_name_fout</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fout</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">hpc</span><span class="o">=</span><span class="s1">&#39;slurm&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a node name and fout unique to the run name, year, and node number.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Base node/job name</span>
+<span class="sd">    fout : str</span>
+<span class="sd">        Base file output name (no path) (with or without .h5 extension)</span>
+<span class="sd">    i : int | None</span>
+<span class="sd">        Node number. If None, only a single node is being used and no</span>
+<span class="sd">        enumeration is necessary.</span>
+<span class="sd">    pc : reV.config.PointsControl</span>
+<span class="sd">        A PointsControl instance that i is enumerated from.</span>
+<span class="sd">    hpc : str</span>
+<span class="sd">        HPC job submission tool name (e.g. slurm or pbs). Affects job name.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    node_name : str</span>
+<span class="sd">        Base node name with _00 tag. 16 char max.</span>
+<span class="sd">    fout_node : str</span>
+<span class="sd">        Base file output name with _node00 tag.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fout</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">):</span>
+        <span class="n">fout</span> <span class="o">+=</span> <span class="s1">&#39;.h5&#39;</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">fout_node</span> <span class="o">=</span> <span class="n">fout</span>
+        <span class="n">node_name</span> <span class="o">=</span> <span class="n">fout</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">hpc</span> <span class="o">==</span> <span class="s1">&#39;slurm&#39;</span><span class="p">:</span>
+            <span class="n">node_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">_</span><span class="si">{1:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">hpc</span> <span class="o">==</span> <span class="s1">&#39;pbs&#39;</span><span class="p">:</span>
+            <span class="c1"># 13 chars for pbs, (lim is 16, -3 for &quot;_ID&quot;)</span>
+            <span class="n">node_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">_</span><span class="si">{1:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">[:</span><span class="mi">13</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
+
+        <span class="n">fout_node</span> <span class="o">=</span> <span class="n">fout</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;_node</span><span class="si">{0:02d}</span><span class="s1">.h5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">node_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">):</span>
+        <span class="n">node_name</span> <span class="o">=</span> <span class="n">node_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">node_name</span><span class="p">,</span> <span class="n">fout_node</span></div>
+
+
+<div class="viewcode-block" id="get_node_cmd"><a class="viewcode-back" href="../../../_autosummary/reV.generation.cli_gen.get_node_cmd.html#reV.generation.cli_gen.get_node_cmd">[docs]</a><span class="k">def</span> <span class="nf">get_node_cmd</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">out_fpath</span><span class="p">,</span>
+                 <span class="n">points</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">points_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sites_per_worker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">logdir</span><span class="o">=</span><span class="s1">&#39;./out/log_gen&#39;</span><span class="p">,</span> <span class="n">output_request</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;cf_mean&#39;</span><span class="p">,),</span>
+                 <span class="n">site_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mem_util_lim</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span>
+                 <span class="n">curtailment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gid_map</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a reV geneneration direct-local CLI call string.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Name of the job to be submitted.</span>
+<span class="sd">    tech : str</span>
+<span class="sd">        Name of the reV technology to be analyzed.</span>
+<span class="sd">        (e.g. pv, csp, landbasedwind, offshorewind).</span>
+<span class="sd">    sam_files : dict | str | list</span>
+<span class="sd">        SAM input configuration ID(s) and file path(s). Keys are the SAM</span>
+<span class="sd">        config ID(s), top level value is the SAM path. Can also be a single</span>
+<span class="sd">        config file str. If it&#39;s a list, it is mapped to the sorted list</span>
+<span class="sd">        of unique configs requested by points csv.</span>
+<span class="sd">    res_file : str</span>
+<span class="sd">        WTK or NSRDB resource file name + path.</span>
+<span class="sd">    out_fpath : str</span>
+<span class="sd">        Output .h5 file path</span>
+<span class="sd">    points : slice | str | list | tuple</span>
+<span class="sd">        Slice/list specifying project points, string pointing to a project</span>
+<span class="sd">    points_range : list | None</span>
+<span class="sd">        Optional range list to run a subset of sites</span>
+<span class="sd">    sites_per_worker : int | None</span>
+<span class="sd">        Number of sites to be analyzed in serial on a single local core.</span>
+<span class="sd">    max_workers : int | None</span>
+<span class="sd">        Number of workers to use on a node. None defaults to all available</span>
+<span class="sd">        workers.</span>
+<span class="sd">    logdir : str</span>
+<span class="sd">        Target directory to save log files.</span>
+<span class="sd">    output_request : list | tuple</span>
+<span class="sd">        Output variables requested from SAM.</span>
+<span class="sd">    site_data : str | None</span>
+<span class="sd">        Site-specific input data for SAM calculation. String should be a</span>
+<span class="sd">        filepath that points to a csv, Rows match sites, columns are input</span>
+<span class="sd">        keys. Need a &quot;gid&quot; column.  Input as None if no site-specific data.</span>
+<span class="sd">    mem_util_lim : float</span>
+<span class="sd">        Memory utilization limit (fractional).</span>
+<span class="sd">    timeout : int | float</span>
+<span class="sd">        Number of seconds to wait for parallel run iteration to complete</span>
+<span class="sd">        before returning zeros. Default is 1800 seconds.</span>
+<span class="sd">    curtailment : NoneType | str</span>
+<span class="sd">        Pointer to a file containing curtailment input parameters or None if</span>
+<span class="sd">        no curtailment.</span>
+<span class="sd">    gid_map : NoneType | str</span>
+<span class="sd">        Pointer to a gid_map csv file (can be the same as project_points) with</span>
+<span class="sd">        gid and gid_map columns or None.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        Flag to turn on debug logging. Default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cmd : str</span>
+<span class="sd">        Single line command line argument to call the following CLI with</span>
+<span class="sd">        appropriately formatted arguments based on input args:</span>
+<span class="sd">            python -m reV.generation.cli_gen [args] direct [args] local [args]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># mark a cli arg string for main() in this module</span>
+    <span class="n">arg_main</span> <span class="o">=</span> <span class="s1">&#39;-n </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="c1"># make a cli arg string for direct() in this module</span>
+    <span class="n">arg_direct</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-t </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">tech</span><span class="p">)),</span>
+                  <span class="s1">&#39;-p </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">points</span><span class="p">)),</span>
+                  <span class="s1">&#39;-sf </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">sam_files</span><span class="p">)),</span>
+                  <span class="s1">&#39;-rf </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">res_file</span><span class="p">)),</span>
+                  <span class="s1">&#39;-o </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">out_fpath</span><span class="p">)),</span>
+                  <span class="s1">&#39;-spw </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">sites_per_worker</span><span class="p">)),</span>
+                  <span class="s1">&#39;-lo </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">logdir</span><span class="p">)),</span>
+                  <span class="s1">&#39;-or </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">output_request</span><span class="p">)),</span>
+                  <span class="s1">&#39;-mem </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">mem_util_lim</span><span class="p">))]</span>
+
+    <span class="k">if</span> <span class="n">site_data</span><span class="p">:</span>
+        <span class="n">arg_direct</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-sd </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">site_data</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">curtailment</span><span class="p">:</span>
+        <span class="n">arg_direct</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-curt </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">curtailment</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">gid_map</span><span class="p">:</span>
+        <span class="n">arg_direct</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-gm </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">gid_map</span><span class="p">)))</span>
+
+    <span class="c1"># make a cli arg string for local() in this module</span>
+    <span class="n">arg_loc</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-mw </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">max_workers</span><span class="p">)),</span>
+               <span class="s1">&#39;-to </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">timeout</span><span class="p">)),</span>
+               <span class="s1">&#39;-pr </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLURM</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">points_range</span><span class="p">))]</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">arg_loc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Python command that will be executed on a node</span>
+    <span class="c1"># command strings after cli v7.0 use dashes instead of underscores</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;python -m reV.generation.cli_gen &#39;</span>
+           <span class="s1">&#39;</span><span class="si">{arg_main}</span><span class="s1"> direct </span><span class="si">{arg_direct}</span><span class="s1"> local </span><span class="si">{arg_loc}</span><span class="s1">&#39;</span>
+           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg_main</span><span class="o">=</span><span class="n">arg_main</span><span class="p">,</span>
+                   <span class="n">arg_direct</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arg_direct</span><span class="p">),</span>
+                   <span class="n">arg_loc</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arg_loc</span><span class="p">)))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Creating the following command line call:</span><span class="se">\n\t</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmd</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">cmd</span></div>
+
+
+<span class="nd">@direct</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--alloc&#39;</span><span class="p">,</span> <span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;SLURM allocation account name.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--nodes&#39;</span><span class="p">,</span> <span class="s1">&#39;-no&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">INT</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of SLURM nodes for gen job. Default is 1.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--memory&#39;</span><span class="p">,</span> <span class="s1">&#39;-mem&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">INT</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Single node memory request in GB. Default is None&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--walltime&#39;</span><span class="p">,</span> <span class="s1">&#39;-wt&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;SLURM walltime request in hours. Default is 1.0&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--feature&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Additional flags for SLURM job. Format is &quot;--qos=high&quot; &#39;</span>
+                    <span class="s1">&#39;or &quot;--depend=[state:job_id]&quot;. Default is None.&#39;</span><span class="p">))</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--conda_env&#39;</span><span class="p">,</span> <span class="s1">&#39;-env&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Conda env to activate&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--module&#39;</span><span class="p">,</span> <span class="s1">&#39;-mod&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Module to load&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--stdout_path&#39;</span><span class="p">,</span> <span class="s1">&#39;-sout&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;./out/stdout&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">STR</span><span class="p">,</span>
+              <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Subprocess standard output path. Default is ./out/stdout&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Flag to turn on debug logging. Default is not verbose.&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">slurm</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">alloc</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">conda_env</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span>
+          <span class="n">stdout_path</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run generation on HPC via SLURM job submission.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span>
+    <span class="n">tech</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">]</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;POINTS&#39;</span><span class="p">]</span>
+    <span class="n">sam_files</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SAM_FILES&#39;</span><span class="p">]</span>
+    <span class="n">res_file</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;RES_FILE&#39;</span><span class="p">]</span>
+    <span class="n">sites_per_worker</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITES_PER_WORKER&#39;</span><span class="p">]</span>
+    <span class="n">dirout</span><span class="p">,</span> <span class="n">fout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUT_FPATH&#39;</span><span class="p">])</span>
+    <span class="n">logdir</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;LOGDIR&#39;</span><span class="p">]</span>
+    <span class="n">output_request</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;OUTPUT_REQUEST&#39;</span><span class="p">]</span>
+    <span class="n">site_data</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SITE_DATA&#39;</span><span class="p">]</span>
+    <span class="n">max_workers</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;MAX_WORKERS&#39;</span><span class="p">]</span>
+    <span class="n">mem_util_lim</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;MEM_UTIL_LIM&#39;</span><span class="p">]</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;TIMEOUT&#39;</span><span class="p">]</span>
+    <span class="n">curtailment</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;CURTAILMENT&#39;</span><span class="p">]</span>
+    <span class="n">gid_map</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;GID_MAP&#39;</span><span class="p">]</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">verbose</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;VERBOSE&#39;</span><span class="p">]])</span>
+
+    <span class="n">slurm_manager</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SLURM_MANAGER&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">slurm_manager</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">slurm_manager</span> <span class="o">=</span> <span class="n">SLURM</span><span class="p">()</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;SLURM_MANAGER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slurm_manager</span>
+
+    <span class="n">pc</span> <span class="o">=</span> <span class="n">get_node_pc</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">nodes</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">split</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pc</span><span class="p">):</span>
+        <span class="n">node_name</span><span class="p">,</span> <span class="n">fout_node</span> <span class="o">=</span> <span class="n">get_node_name_fout</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fout</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span>
+                                                  <span class="n">hpc</span><span class="o">=</span><span class="s1">&#39;slurm&#39;</span><span class="p">)</span>
+
+        <span class="n">node_fpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirout</span><span class="p">,</span> <span class="n">fout_node</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">get_node_cmd</span><span class="p">(</span><span class="n">node_name</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">sam_files</span><span class="p">,</span> <span class="n">res_file</span><span class="p">,</span> <span class="n">node_fpath</span><span class="p">,</span>
+                           <span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span>
+                           <span class="n">points_range</span><span class="o">=</span><span class="n">split</span><span class="o">.</span><span class="n">split_range</span><span class="p">,</span>
+                           <span class="n">sites_per_worker</span><span class="o">=</span><span class="n">sites_per_worker</span><span class="p">,</span>
+                           <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+                           <span class="n">logdir</span><span class="o">=</span><span class="n">logdir</span><span class="p">,</span>
+                           <span class="n">output_request</span><span class="o">=</span><span class="n">output_request</span><span class="p">,</span>
+                           <span class="n">site_data</span><span class="o">=</span><span class="n">site_data</span><span class="p">,</span>
+                           <span class="n">mem_util_lim</span><span class="o">=</span><span class="n">mem_util_lim</span><span class="p">,</span>
+                           <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+                           <span class="n">curtailment</span><span class="o">=</span><span class="n">curtailment</span><span class="p">,</span>
+                           <span class="n">gid_map</span><span class="o">=</span><span class="n">gid_map</span><span class="p">,</span>
+                           <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="n">status</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">retrieve_job_status</span><span class="p">(</span><span class="n">dirout</span><span class="p">,</span> <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="n">node_name</span><span class="p">,</span>
+                                            <span class="n">hardware</span><span class="o">=</span><span class="s1">&#39;eagle&#39;</span><span class="p">,</span>
+                                            <span class="n">subprocess_manager</span><span class="o">=</span><span class="n">slurm_manager</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;successful&#39;</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Job &quot;</span><span class="si">{}</span><span class="s1">&quot; is successful in status json found in &quot;</span><span class="si">{}</span><span class="s1">&quot;, &#39;</span>
+                   <span class="s1">&#39;not re-running.&#39;</span>
+                   <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node_name</span><span class="p">,</span> <span class="n">dirout</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="s1">&#39;fail&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">and</span> <span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Job &quot;</span><span class="si">{}</span><span class="s1">&quot; was found with status &quot;</span><span class="si">{}</span><span class="s1">&quot;, not resubmitting&#39;</span>
+                   <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node_name</span><span class="p">,</span> <span class="n">status</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Running reV generation on SLURM with node name &quot;</span><span class="si">{}</span><span class="s1">&quot; &#39;</span>
+                        <span class="s1">&#39;for </span><span class="si">{}</span><span class="s1"> (points range: </span><span class="si">{}</span><span class="s1">).&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node_name</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">split</span><span class="o">.</span><span class="n">split_range</span><span class="p">))</span>
+            <span class="c1"># create and submit the SLURM job</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">slurm_manager</span><span class="o">.</span><span class="n">sbatch</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span>
+                                       <span class="n">alloc</span><span class="o">=</span><span class="n">alloc</span><span class="p">,</span>
+                                       <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span>
+                                       <span class="n">walltime</span><span class="o">=</span><span class="n">walltime</span><span class="p">,</span>
+                                       <span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span>
+                                       <span class="n">name</span><span class="o">=</span><span class="n">node_name</span><span class="p">,</span>
+                                       <span class="n">stdout_path</span><span class="o">=</span><span class="n">stdout_path</span><span class="p">,</span>
+                                       <span class="n">conda_env</span><span class="o">=</span><span class="n">conda_env</span><span class="p">,</span>
+                                       <span class="n">module</span><span class="o">=</span><span class="n">module</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">out</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Kicked off reV generation job &quot;</span><span class="si">{}</span><span class="s1">&quot; (SLURM jobid #</span><span class="si">{}</span><span class="s1">).&#39;</span>
+                       <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node_name</span><span class="p">,</span> <span class="n">out</span><span class="p">))</span>
+                <span class="c1"># add job to reV status file.</span>
+                <span class="n">Status</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span>
+                    <span class="n">dirout</span><span class="p">,</span> <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="n">node_name</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">job_attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;job_id&#39;</span><span class="p">:</span> <span class="n">out</span><span class="p">,</span> <span class="s1">&#39;hardware&#39;</span><span class="p">:</span> <span class="s1">&#39;eagle&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;fout&#39;</span><span class="p">:</span> <span class="n">fout_node</span><span class="p">,</span> <span class="s1">&#39;dirout&#39;</span><span class="p">:</span> <span class="n">dirout</span><span class="p">})</span>
+
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">main</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Error running reV Generation CLI&#39;</span><span class="p">)</span>
+        <span class="k">raise</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Alliance for Sustainable Energy, LLC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

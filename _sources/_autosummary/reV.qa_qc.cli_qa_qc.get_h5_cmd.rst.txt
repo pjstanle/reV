@@ -1,0 +1,6 @@
+reV.qa\_qc.cli\_qa\_qc.get\_h5\_cmd
+===================================
+
+.. currentmodule:: reV.qa_qc.cli_qa_qc
+
+.. autofunction:: get_h5_cmd

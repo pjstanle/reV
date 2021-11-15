@@ -1,0 +1,6 @@
+reV.rep\_profiles.cli\_rep\_profiles.get\_node\_cmd
+===================================================
+
+.. currentmodule:: reV.rep_profiles.cli_rep_profiles
+
+.. autofunction:: get_node_cmd

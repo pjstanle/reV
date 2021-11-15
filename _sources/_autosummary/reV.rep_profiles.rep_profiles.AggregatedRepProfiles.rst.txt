@@ -1,0 +1,33 @@
+reV.rep\_profiles.rep\_profiles.AggregatedRepProfiles
+=====================================================
+
+.. currentmodule:: reV.rep_profiles.rep_profiles
+
+.. autoclass:: AggregatedRepProfiles
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AggregatedRepProfiles.run
+      ~AggregatedRepProfiles.save_profiles
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AggregatedRepProfiles.meta
+      ~AggregatedRepProfiles.profiles
+      ~AggregatedRepProfiles.time_index
+   
+   

@@ -1,0 +1,30 @@
+reV.pipeline.cli\_pipeline
+==========================
+
+.. automodule:: reV.pipeline.cli_pipeline
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      pipeline_monitor_background
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

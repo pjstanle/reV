@@ -1,0 +1,63 @@
+reV.config.rep\_profiles\_config.RepProfilesConfig
+==================================================
+
+.. currentmodule:: reV.config.rep_profiles_config
+
+.. autoclass:: RepProfilesConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RepProfilesConfig.check_files
+      ~RepProfilesConfig.check_overwrite_keys
+      ~RepProfilesConfig.clear
+      ~RepProfilesConfig.copy
+      ~RepProfilesConfig.fromkeys
+      ~RepProfilesConfig.get
+      ~RepProfilesConfig.get_file
+      ~RepProfilesConfig.items
+      ~RepProfilesConfig.keys
+      ~RepProfilesConfig.pop
+      ~RepProfilesConfig.popitem
+      ~RepProfilesConfig.set_self_dict
+      ~RepProfilesConfig.setdefault
+      ~RepProfilesConfig.str_replace
+      ~RepProfilesConfig.update
+      ~RepProfilesConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~RepProfilesConfig.NAME
+      ~RepProfilesConfig.REQUIREMENTS
+      ~RepProfilesConfig.aggregate_profiles
+      ~RepProfilesConfig.analysis_years
+      ~RepProfilesConfig.cf_dset
+      ~RepProfilesConfig.config_dir
+      ~RepProfilesConfig.config_keys
+      ~RepProfilesConfig.dirout
+      ~RepProfilesConfig.err_method
+      ~RepProfilesConfig.execution_control
+      ~RepProfilesConfig.gen_fpath
+      ~RepProfilesConfig.log_level
+      ~RepProfilesConfig.logdir
+      ~RepProfilesConfig.n_profiles
+      ~RepProfilesConfig.name
+      ~RepProfilesConfig.reg_cols
+      ~RepProfilesConfig.rep_method
+      ~RepProfilesConfig.rev_summary
+      ~RepProfilesConfig.weight
+   
+   

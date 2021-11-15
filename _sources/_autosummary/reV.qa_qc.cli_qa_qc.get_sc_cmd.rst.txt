@@ -1,0 +1,6 @@
+reV.qa\_qc.cli\_qa\_qc.get\_sc\_cmd
+===================================
+
+.. currentmodule:: reV.qa_qc.cli_qa_qc
+
+.. autofunction:: get_sc_cmd

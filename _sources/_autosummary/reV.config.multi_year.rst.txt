@@ -1,0 +1,32 @@
+reV.config.multi\_year
+======================
+
+.. automodule:: reV.config.multi_year
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      MultiYearConfig
+      MultiYearGroup
+   
+   
+
+   
+   
+   
+
+
+

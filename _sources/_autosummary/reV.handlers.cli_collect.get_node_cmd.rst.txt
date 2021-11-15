@@ -1,0 +1,6 @@
+reV.handlers.cli\_collect.get\_node\_cmd
+========================================
+
+.. currentmodule:: reV.handlers.cli_collect
+
+.. autofunction:: get_node_cmd

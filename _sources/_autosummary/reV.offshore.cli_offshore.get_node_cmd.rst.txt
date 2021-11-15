@@ -1,0 +1,6 @@
+reV.offshore.cli\_offshore.get\_node\_cmd
+=========================================
+
+.. currentmodule:: reV.offshore.cli_offshore
+
+.. autofunction:: get_node_cmd

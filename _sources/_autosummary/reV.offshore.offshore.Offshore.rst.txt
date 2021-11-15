@@ -1,0 +1,44 @@
+reV.offshore.offshore.Offshore
+==============================
+
+.. currentmodule:: reV.offshore.offshore
+
+.. autoclass:: Offshore
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Offshore.check_outputs
+      ~Offshore.run
+      ~Offshore.run_nrwal
+      ~Offshore.write_to_gen_fpath
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Offshore.DEFAULT_META_COLS
+      ~Offshore.DEFAULT_NRWAL_KEYS
+      ~Offshore.meta_out
+      ~Offshore.meta_out_offshore
+      ~Offshore.meta_out_onshore
+      ~Offshore.meta_source_full
+      ~Offshore.meta_source_offshore
+      ~Offshore.meta_source_onshore
+      ~Offshore.offshore_res_gids
+      ~Offshore.onshore_res_gids
+      ~Offshore.outputs
+      ~Offshore.time_index
+   
+   

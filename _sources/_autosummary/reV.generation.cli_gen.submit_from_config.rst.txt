@@ -1,0 +1,6 @@
+reV.generation.cli\_gen.submit\_from\_config
+============================================
+
+.. currentmodule:: reV.generation.cli_gen
+
+.. autofunction:: submit_from_config

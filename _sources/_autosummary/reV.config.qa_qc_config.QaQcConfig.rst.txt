@@ -1,0 +1,62 @@
+reV.config.qa\_qc\_config.QaQcConfig
+====================================
+
+.. currentmodule:: reV.config.qa_qc_config
+
+.. autoclass:: QaQcConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~QaQcConfig.check_files
+      ~QaQcConfig.check_overwrite_keys
+      ~QaQcConfig.clear
+      ~QaQcConfig.copy
+      ~QaQcConfig.fromkeys
+      ~QaQcConfig.get
+      ~QaQcConfig.get_file
+      ~QaQcConfig.get_module_inputs
+      ~QaQcConfig.items
+      ~QaQcConfig.keys
+      ~QaQcConfig.pop
+      ~QaQcConfig.popitem
+      ~QaQcConfig.set_self_dict
+      ~QaQcConfig.setdefault
+      ~QaQcConfig.str_replace
+      ~QaQcConfig.update
+      ~QaQcConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~QaQcConfig.NAME
+      ~QaQcConfig.REQUIREMENTS
+      ~QaQcConfig.analysis_years
+      ~QaQcConfig.collect
+      ~QaQcConfig.config_dir
+      ~QaQcConfig.config_keys
+      ~QaQcConfig.dirout
+      ~QaQcConfig.execution_control
+      ~QaQcConfig.log_level
+      ~QaQcConfig.logdir
+      ~QaQcConfig.module_names
+      ~QaQcConfig.modules
+      ~QaQcConfig.multi_year
+      ~QaQcConfig.name
+      ~QaQcConfig.rep_profiles
+      ~QaQcConfig.supply_curve
+      ~QaQcConfig.supply_curve_aggregation
+   
+   

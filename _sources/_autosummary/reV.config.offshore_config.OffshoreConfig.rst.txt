@@ -1,0 +1,63 @@
+reV.config.offshore\_config.OffshoreConfig
+==========================================
+
+.. currentmodule:: reV.config.offshore_config
+
+.. autoclass:: OffshoreConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OffshoreConfig.check_files
+      ~OffshoreConfig.check_overwrite_keys
+      ~OffshoreConfig.clear
+      ~OffshoreConfig.copy
+      ~OffshoreConfig.fromkeys
+      ~OffshoreConfig.get
+      ~OffshoreConfig.get_file
+      ~OffshoreConfig.items
+      ~OffshoreConfig.keys
+      ~OffshoreConfig.parse_gen_fpaths
+      ~OffshoreConfig.pop
+      ~OffshoreConfig.popitem
+      ~OffshoreConfig.set_self_dict
+      ~OffshoreConfig.setdefault
+      ~OffshoreConfig.str_replace
+      ~OffshoreConfig.update
+      ~OffshoreConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~OffshoreConfig.NAME
+      ~OffshoreConfig.REQUIREMENTS
+      ~OffshoreConfig.analysis_years
+      ~OffshoreConfig.config_dir
+      ~OffshoreConfig.config_keys
+      ~OffshoreConfig.dirout
+      ~OffshoreConfig.execution_control
+      ~OffshoreConfig.gen_fpath
+      ~OffshoreConfig.log_level
+      ~OffshoreConfig.logdir
+      ~OffshoreConfig.name
+      ~OffshoreConfig.nrwal_configs
+      ~OffshoreConfig.offshore_fpath
+      ~OffshoreConfig.offshore_meta_cols
+      ~OffshoreConfig.offshore_nrwal_keys
+      ~OffshoreConfig.project_points
+      ~OffshoreConfig.run_all
+      ~OffshoreConfig.sam_files
+   
+   

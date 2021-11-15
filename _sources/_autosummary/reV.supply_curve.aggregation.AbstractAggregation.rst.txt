@@ -1,0 +1,33 @@
+reV.supply\_curve.aggregation.AbstractAggregation
+=================================================
+
+.. currentmodule:: reV.supply_curve.aggregation
+
+.. autoclass:: AbstractAggregation
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AbstractAggregation.aggregate
+      ~AbstractAggregation.run
+      ~AbstractAggregation.run_parallel
+      ~AbstractAggregation.run_serial
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AbstractAggregation.gids
+   
+   

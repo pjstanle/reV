@@ -1,0 +1,32 @@
+reV.pipeline
+============
+
+.. automodule:: reV.pipeline
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   reV.pipeline.cli_pipeline
+   reV.pipeline.pipeline
+   reV.pipeline.status
+

@@ -1,0 +1,30 @@
+reV.offshore.cli\_offshore
+==========================
+
+.. automodule:: reV.offshore.cli_offshore
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      get_node_cmd
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

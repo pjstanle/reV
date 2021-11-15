@@ -1,0 +1,58 @@
+reV.config.pipeline.PipelineConfig
+==================================
+
+.. currentmodule:: reV.config.pipeline
+
+.. autoclass:: PipelineConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PipelineConfig.check_files
+      ~PipelineConfig.check_overwrite_keys
+      ~PipelineConfig.clear
+      ~PipelineConfig.copy
+      ~PipelineConfig.fromkeys
+      ~PipelineConfig.get
+      ~PipelineConfig.get_file
+      ~PipelineConfig.items
+      ~PipelineConfig.keys
+      ~PipelineConfig.pop
+      ~PipelineConfig.popitem
+      ~PipelineConfig.set_self_dict
+      ~PipelineConfig.setdefault
+      ~PipelineConfig.str_replace
+      ~PipelineConfig.update
+      ~PipelineConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PipelineConfig.NAME
+      ~PipelineConfig.REQUIREMENTS
+      ~PipelineConfig.analysis_years
+      ~PipelineConfig.config_dir
+      ~PipelineConfig.config_keys
+      ~PipelineConfig.dirout
+      ~PipelineConfig.execution_control
+      ~PipelineConfig.hardware
+      ~PipelineConfig.log_level
+      ~PipelineConfig.logdir
+      ~PipelineConfig.logging
+      ~PipelineConfig.name
+      ~PipelineConfig.pipeline
+      ~PipelineConfig.status_file
+   
+   

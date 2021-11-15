@@ -1,0 +1,39 @@
+reV.utilities.cli\_dtypes.SAMFilesType
+======================================
+
+.. currentmodule:: reV.utilities.cli_dtypes
+
+.. autoclass:: SAMFilesType
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SAMFilesType.convert
+      ~SAMFilesType.fail
+      ~SAMFilesType.get_metavar
+      ~SAMFilesType.get_missing_message
+      ~SAMFilesType.shell_complete
+      ~SAMFilesType.split_envvar_value
+      ~SAMFilesType.to_info_dict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SAMFilesType.arity
+      ~SAMFilesType.envvar_list_splitter
+      ~SAMFilesType.is_composite
+      ~SAMFilesType.name
+   
+   

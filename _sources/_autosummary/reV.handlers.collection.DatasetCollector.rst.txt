@@ -1,0 +1,25 @@
+reV.handlers.collection.DatasetCollector
+========================================
+
+.. currentmodule:: reV.handlers.collection
+
+.. autoclass:: DatasetCollector
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DatasetCollector.collect_dset
+      ~DatasetCollector.parse_meta
+   
+   
+
+   
+   
+   

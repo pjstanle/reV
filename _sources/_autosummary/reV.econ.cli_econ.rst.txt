@@ -1,0 +1,32 @@
+reV.econ.cli\_econ
+==================
+
+.. automodule:: reV.econ.cli_econ
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      get_node_cmd
+      get_node_pc
+      submit_from_config
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

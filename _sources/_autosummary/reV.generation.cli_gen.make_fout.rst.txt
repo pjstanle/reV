@@ -1,0 +1,6 @@
+reV.generation.cli\_gen.make\_fout
+==================================
+
+.. currentmodule:: reV.generation.cli_gen
+
+.. autofunction:: make_fout

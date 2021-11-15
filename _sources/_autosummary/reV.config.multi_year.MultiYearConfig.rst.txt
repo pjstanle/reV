@@ -1,0 +1,58 @@
+reV.config.multi\_year.MultiYearConfig
+======================================
+
+.. currentmodule:: reV.config.multi_year
+
+.. autoclass:: MultiYearConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MultiYearConfig.check_files
+      ~MultiYearConfig.check_overwrite_keys
+      ~MultiYearConfig.clear
+      ~MultiYearConfig.copy
+      ~MultiYearConfig.fromkeys
+      ~MultiYearConfig.get
+      ~MultiYearConfig.get_file
+      ~MultiYearConfig.items
+      ~MultiYearConfig.keys
+      ~MultiYearConfig.pop
+      ~MultiYearConfig.popitem
+      ~MultiYearConfig.set_self_dict
+      ~MultiYearConfig.setdefault
+      ~MultiYearConfig.str_replace
+      ~MultiYearConfig.update
+      ~MultiYearConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MultiYearConfig.NAME
+      ~MultiYearConfig.REQUIREMENTS
+      ~MultiYearConfig.analysis_years
+      ~MultiYearConfig.config_dir
+      ~MultiYearConfig.config_keys
+      ~MultiYearConfig.dirout
+      ~MultiYearConfig.execution_control
+      ~MultiYearConfig.group_names
+      ~MultiYearConfig.group_params
+      ~MultiYearConfig.groups
+      ~MultiYearConfig.log_level
+      ~MultiYearConfig.logdir
+      ~MultiYearConfig.my_file
+      ~MultiYearConfig.name
+   
+   

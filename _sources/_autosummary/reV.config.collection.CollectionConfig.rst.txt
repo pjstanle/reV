@@ -1,0 +1,59 @@
+reV.config.collection.CollectionConfig
+======================================
+
+.. currentmodule:: reV.config.collection
+
+.. autoclass:: CollectionConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~CollectionConfig.check_files
+      ~CollectionConfig.check_overwrite_keys
+      ~CollectionConfig.clear
+      ~CollectionConfig.copy
+      ~CollectionConfig.fromkeys
+      ~CollectionConfig.get
+      ~CollectionConfig.get_file
+      ~CollectionConfig.items
+      ~CollectionConfig.keys
+      ~CollectionConfig.pop
+      ~CollectionConfig.popitem
+      ~CollectionConfig.set_self_dict
+      ~CollectionConfig.setdefault
+      ~CollectionConfig.str_replace
+      ~CollectionConfig.update
+      ~CollectionConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CollectionConfig.NAME
+      ~CollectionConfig.REQUIREMENTS
+      ~CollectionConfig.analysis_years
+      ~CollectionConfig.coldir
+      ~CollectionConfig.config_dir
+      ~CollectionConfig.config_keys
+      ~CollectionConfig.dirout
+      ~CollectionConfig.dsets
+      ~CollectionConfig.execution_control
+      ~CollectionConfig.file_prefixes
+      ~CollectionConfig.log_level
+      ~CollectionConfig.logdir
+      ~CollectionConfig.name
+      ~CollectionConfig.project_points
+      ~CollectionConfig.purge_chunks
+   
+   

@@ -1,0 +1,32 @@
+reV.config.qa\_qc\_config
+=========================
+
+.. automodule:: reV.config.qa_qc_config
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      QaQcConfig
+      QaQcModule
+   
+   
+
+   
+   
+   
+
+
+

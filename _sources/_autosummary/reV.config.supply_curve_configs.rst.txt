@@ -1,0 +1,32 @@
+reV.config.supply\_curve\_configs
+=================================
+
+.. automodule:: reV.config.supply_curve_configs
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      SupplyCurveAggregationConfig
+      SupplyCurveConfig
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,65 @@
+reV.SAM.generation.AbstractSamPv
+================================
+
+.. currentmodule:: reV.SAM.generation
+
+.. autoclass:: AbstractSamPv
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AbstractSamPv.ac
+      ~AbstractSamPv.annual_energy
+      ~AbstractSamPv.assign_inputs
+      ~AbstractSamPv.cf_mean
+      ~AbstractSamPv.cf_profile
+      ~AbstractSamPv.check_resource_data
+      ~AbstractSamPv.clipped_power
+      ~AbstractSamPv.collect_outputs
+      ~AbstractSamPv.dc
+      ~AbstractSamPv.default
+      ~AbstractSamPv.drop_leap
+      ~AbstractSamPv.energy_yield
+      ~AbstractSamPv.ensure_res_len
+      ~AbstractSamPv.execute
+      ~AbstractSamPv.gen_profile
+      ~AbstractSamPv.get_sam_res
+      ~AbstractSamPv.get_time_interval
+      ~AbstractSamPv.make_datetime
+      ~AbstractSamPv.outputs_to_utc_arr
+      ~AbstractSamPv.reV_run
+      ~AbstractSamPv.run
+      ~AbstractSamPv.run_gen_and_econ
+      ~AbstractSamPv.set_latitude_tilt_az
+      ~AbstractSamPv.set_resource_data
+      ~AbstractSamPv.tz_elev_check
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AbstractSamPv.DIR
+      ~AbstractSamPv.IGNORE_ATTRS
+      ~AbstractSamPv.MODULE
+      ~AbstractSamPv.PYSAM
+      ~AbstractSamPv.RESOURCE_TYPES
+      ~AbstractSamPv.attr_dict
+      ~AbstractSamPv.has_timezone
+      ~AbstractSamPv.input_list
+      ~AbstractSamPv.meta
+      ~AbstractSamPv.module
+      ~AbstractSamPv.pysam
+      ~AbstractSamPv.site
+   
+   

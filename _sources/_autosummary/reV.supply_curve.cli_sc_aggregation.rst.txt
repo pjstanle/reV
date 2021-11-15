@@ -1,0 +1,30 @@
+reV.supply\_curve.cli\_sc\_aggregation
+======================================
+
+.. automodule:: reV.supply_curve.cli_sc_aggregation
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      get_node_cmd
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

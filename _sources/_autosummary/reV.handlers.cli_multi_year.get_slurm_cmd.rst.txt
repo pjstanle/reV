@@ -1,0 +1,6 @@
+reV.handlers.cli\_multi\_year.get\_slurm\_cmd
+=============================================
+
+.. currentmodule:: reV.handlers.cli_multi_year
+
+.. autofunction:: get_slurm_cmd

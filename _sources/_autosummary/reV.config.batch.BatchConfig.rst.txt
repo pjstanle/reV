@@ -1,0 +1,52 @@
+reV.config.batch.BatchConfig
+============================
+
+.. currentmodule:: reV.config.batch
+
+.. autoclass:: BatchConfig
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~BatchConfig.check_files
+      ~BatchConfig.check_overwrite_keys
+      ~BatchConfig.clear
+      ~BatchConfig.copy
+      ~BatchConfig.fromkeys
+      ~BatchConfig.get
+      ~BatchConfig.get_file
+      ~BatchConfig.items
+      ~BatchConfig.keys
+      ~BatchConfig.pop
+      ~BatchConfig.popitem
+      ~BatchConfig.set_self_dict
+      ~BatchConfig.setdefault
+      ~BatchConfig.str_replace
+      ~BatchConfig.update
+      ~BatchConfig.values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BatchConfig.REQUIREMENTS
+      ~BatchConfig.config_dir
+      ~BatchConfig.config_keys
+      ~BatchConfig.log_level
+      ~BatchConfig.logging
+      ~BatchConfig.name
+      ~BatchConfig.pipeline_config
+      ~BatchConfig.sets
+   
+   

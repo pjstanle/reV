@@ -1,0 +1,40 @@
+reV.handlers.collection.Collector
+=================================
+
+.. currentmodule:: reV.handlers.collection
+
+.. autoclass:: Collector
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Collector.add_dataset
+      ~Collector.collect
+      ~Collector.combine_meta
+      ~Collector.combine_time_index
+      ~Collector.find_h5_files
+      ~Collector.get_dset_shape
+      ~Collector.move_chunks
+      ~Collector.parse_gids_from_files
+      ~Collector.parse_project_points
+      ~Collector.purge_chunks
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Collector.gids
+      ~Collector.h5_files
+   
+   

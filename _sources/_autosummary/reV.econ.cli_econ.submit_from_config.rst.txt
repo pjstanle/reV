@@ -1,0 +1,6 @@
+reV.econ.cli\_econ.submit\_from\_config
+=======================================
+
+.. currentmodule:: reV.econ.cli_econ
+
+.. autofunction:: submit_from_config

@@ -1,0 +1,6 @@
+reV.pipeline.cli\_pipeline.pipeline\_monitor\_background
+========================================================
+
+.. currentmodule:: reV.pipeline.cli_pipeline
+
+.. autofunction:: pipeline_monitor_background
