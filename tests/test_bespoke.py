@@ -12,7 +12,8 @@ from reV.supply_curve.tech_mapping import TechMapping
 
 from rex import init_logger
 
-
+# print(TESTDATADIR)
+TESTDATADIR = './data/'
 EXCL = os.path.join(TESTDATADIR, 'ri_exclusions/ri_exclusions.h5')
 RES = os.path.join(TESTDATADIR, 'wtk/ri_100_wtk_{}.h5')
 TM_DSET = 'techmap_wtk_ri_100'
@@ -43,3 +44,4 @@ if __name__ == '__main__':
         TechMapping.run(excl_fp, RES.format(2012), dset=TM_DSET, max_workers=1)
         BespokeWindFarms.run_serial(excl_fp, res_fp, TM_DSET, ws_dset, wd_dset,
                                     excl_dict=EXCL_DICT, gids=gid)
+

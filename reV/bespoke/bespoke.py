@@ -112,6 +112,8 @@ class BespokeSingleFarm:
             print(ws_edges)
             print(wd_edges)
 
+            breakpoint()
+            # point.include_mask is where the exclusions are saved
 
 class BespokeWindFarms(AbstractAggregation):
     """Framework for analyzing optimized wind farm layouts specific to the
